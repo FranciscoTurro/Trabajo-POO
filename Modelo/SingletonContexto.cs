@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Modelo
 {
-    public class SingletonContexto
+    public class SingletonContexto 
     {
         private static SingletonContexto instancia;
         private static ContextoContainer contexto;
 
-        private SingletonContexto() { }
+        private SingletonContexto() { } //Instancio un objeto de la clase, ese objeto puede acceder a la base de datos (contexto)
 
         public static SingletonContexto obtenerInstancia()
         {
