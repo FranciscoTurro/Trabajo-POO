@@ -26,6 +26,5 @@ namespace Modelo
         {
             get { return contexto; }
         }
-
     }
 }
