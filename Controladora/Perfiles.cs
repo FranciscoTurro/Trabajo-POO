@@ -21,7 +21,7 @@ namespace Controladora
             return instancia;
         }
 
-        public List<Modelo.Perfil> ListarPefiles()
+        public List<Modelo.Perfil> ListarPerfiles()
         {
             return Modelo.SingletonContexto.obtenerInstancia().Contexto.Perfiles.ToList();
         }
