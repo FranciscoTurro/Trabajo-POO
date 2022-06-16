@@ -1,6 +1,6 @@
 ﻿namespace Vista
 {
-    partial class Form2
+    partial class RegistrarUsuario
     {
         /// <summary>
         /// Required designer variable.

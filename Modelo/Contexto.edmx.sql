@@ -2,13 +2,13 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 06/15/2022 12:37:34
+-- Date Created: 06/15/2022 14:02:05
 -- Generated from EDMX file: C:\Users\fturr\Desktop\Tppoo\Modelo\Contexto.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
 GO
-USE [PLS];
+USE [newdb];
 GO
 IF SCHEMA_ID(N'dbo') IS NULL EXECUTE(N'CREATE SCHEMA [dbo]');
 GO
@@ -17,43 +17,43 @@ GO
 -- Dropping existing FOREIGN KEY constraints
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[FK_UsuarioPerfil]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Usuarios] DROP CONSTRAINT [FK_UsuarioPerfil];
+GO
 IF OBJECT_ID(N'[dbo].[FK_FormularioPermiso_Formulario]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[FormularioPermiso] DROP CONSTRAINT [FK_FormularioPermiso_Formulario];
 GO
 IF OBJECT_ID(N'[dbo].[FK_FormularioPermiso_Permiso]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[FormularioPermiso] DROP CONSTRAINT [FK_FormularioPermiso_Permiso];
 GO
-IF OBJECT_ID(N'[dbo].[FK_PerfilFormulario_Formulario]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[PerfilFormulario] DROP CONSTRAINT [FK_PerfilFormulario_Formulario];
-GO
 IF OBJECT_ID(N'[dbo].[FK_PerfilFormulario_Perfil]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[PerfilFormulario] DROP CONSTRAINT [FK_PerfilFormulario_Perfil];
 GO
-IF OBJECT_ID(N'[dbo].[FK_UsuarioPerfil]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Usuarios] DROP CONSTRAINT [FK_UsuarioPerfil];
+IF OBJECT_ID(N'[dbo].[FK_PerfilFormulario_Formulario]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[PerfilFormulario] DROP CONSTRAINT [FK_PerfilFormulario_Formulario];
 GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
 -- --------------------------------------------------
 
-IF OBJECT_ID(N'[dbo].[FormularioPermiso]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[FormularioPermiso];
-GO
-IF OBJECT_ID(N'[dbo].[Formularios]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Formularios];
+IF OBJECT_ID(N'[dbo].[Usuarios]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Usuarios];
 GO
 IF OBJECT_ID(N'[dbo].[Perfiles]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Perfiles];
 GO
-IF OBJECT_ID(N'[dbo].[PerfilFormulario]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[PerfilFormulario];
+IF OBJECT_ID(N'[dbo].[Formularios]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Formularios];
 GO
 IF OBJECT_ID(N'[dbo].[Permisos]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Permisos];
 GO
-IF OBJECT_ID(N'[dbo].[Usuarios]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Usuarios];
+IF OBJECT_ID(N'[dbo].[FormularioPermiso]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[FormularioPermiso];
+GO
+IF OBJECT_ID(N'[dbo].[PerfilFormulario]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[PerfilFormulario];
 GO
 
 -- --------------------------------------------------

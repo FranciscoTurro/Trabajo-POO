@@ -37,5 +37,10 @@ namespace Controladora
         {
             return Modelo.SingletonContexto.obtenerInstancia().Contexto.Usuarios.Find(codigo);
         }
+
+        public List<Modelo.Usuario> ListaUsuarios()
+        {
+            return Modelo.SingletonContexto.obtenerInstancia().Contexto.Usuarios.ToList();
+        }
     }
 }
