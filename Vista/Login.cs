@@ -24,7 +24,7 @@ namespace Vista
 
             Modelo.Usuario Neos = new Modelo.Usuario();
             Neos.Nombre = textBox1.Text;
-            Neos.Contraseña = textBox2.Text; 
+            Neos.Contraseña = Controladora.Encriptar.GetSHA256(textBox2.Text); 
             
             Modelo.Usuario x = ListaUsuarios.Find(usuario => usuario.Nombre == Neos.Nombre && usuario.Contraseña == Neos.Contraseña); //Se busca en la lista un usuario que tenga el mismo nombre y contraseña que el ingresado
             if (x != null)

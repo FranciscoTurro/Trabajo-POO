@@ -23,7 +23,7 @@ namespace Vista
             Neos.Nombre = textBox1.Text;
             Neos.Email = textBox2.Text;
             Neos.Dni = textBox3.Text;
-            Neos.Contraseña = textBox4.Text;
+            Neos.Contraseña = Controladora.Encriptar.GetSHA256(textBox4.Text);
             Neos.Perfil = (Modelo.Perfil)comboBox1.SelectedValue;
             Controladora.Usuario.obtenerInstancia().AgregarUsuario(Neos);
         }
