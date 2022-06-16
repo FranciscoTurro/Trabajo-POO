@@ -32,5 +32,12 @@ namespace Vista
         {
             comboBox1.DataSource = Controladora.Perfiles.obtenerInstancia().ListarPerfiles();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Bienvenida f2 = new Bienvenida();
+            f2.Show();
+            this.Hide();
+        }
     }
 }
