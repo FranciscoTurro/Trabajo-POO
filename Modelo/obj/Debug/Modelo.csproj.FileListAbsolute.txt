@@ -10,3 +10,15 @@ C:\Users\fturr\Desktop\Tppoo\Modelo\obj\Debug\Modelo.csproj.CoreCompileInputs.ca
 C:\Users\fturr\Desktop\Tppoo\Modelo\obj\Debug\Modelo.csproj.CopyComplete
 C:\Users\fturr\Desktop\Tppoo\Modelo\obj\Debug\Modelo.dll
 C:\Users\fturr\Desktop\Tppoo\Modelo\obj\Debug\Modelo.pdb
+C:\Users\Navegador\Desktop\Nueva carpeta\Modelo\bin\Debug\Modelo.dll.config
+C:\Users\Navegador\Desktop\Nueva carpeta\Modelo\bin\Debug\Modelo.dll
+C:\Users\Navegador\Desktop\Nueva carpeta\Modelo\bin\Debug\Modelo.pdb
+C:\Users\Navegador\Desktop\Nueva carpeta\Modelo\bin\Debug\EntityFramework.dll
+C:\Users\Navegador\Desktop\Nueva carpeta\Modelo\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Navegador\Desktop\Nueva carpeta\Modelo\bin\Debug\EntityFramework.xml
+C:\Users\Navegador\Desktop\Nueva carpeta\Modelo\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Navegador\Desktop\Nueva carpeta\Modelo\obj\Debug\Modelo.csproj.AssemblyReference.cache
+C:\Users\Navegador\Desktop\Nueva carpeta\Modelo\obj\Debug\Modelo.csproj.CoreCompileInputs.cache
+C:\Users\Navegador\Desktop\Nueva carpeta\Modelo\obj\Debug\Modelo.csproj.CopyComplete
+C:\Users\Navegador\Desktop\Nueva carpeta\Modelo\obj\Debug\Modelo.dll
+C:\Users\Navegador\Desktop\Nueva carpeta\Modelo\obj\Debug\Modelo.pdb
