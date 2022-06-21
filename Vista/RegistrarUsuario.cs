@@ -26,9 +26,25 @@ namespace Vista
             Neos.Dni = textBox3.Text;
             Neos.Contraseña = Controladora.Encriptar.GetSHA256(textBox4.Text);
             Neos.Perfil = CreaCliente();
-            Controladora.Usuario.obtenerInstancia().AgregarUsuario(Neos);
+
+            if (CheckEmail() == true)
+            {
+                Controladora.Usuario.obtenerInstancia().AgregarUsuario(Neos);
+            }
+            else return;
         }
 
+        private bool CheckEmail ()
+        {
+            string email = textBox2.Text;
+            Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
+            Match match = regex.Match(email);
+            if (match.Success)
+                return true;
+            else
+                return false;
+        }
+            
         private Modelo.Perfil CreaCliente()
         {
             return Controladora.Perfiles.obtenerInstancia().ListarPerfiles().Find(item => item.Nombre == "Cliente"); 
