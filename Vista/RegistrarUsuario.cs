@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace Vista
 {
@@ -19,21 +20,24 @@ namespace Vista
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Modelo.Usuario Neos = new Modelo.Usuario();
+            Modelo.Usuario Neos = new Modelo.Usuario(); 
             Neos.Nombre = textBox1.Text;
             Neos.Email = textBox2.Text;
             Neos.Dni = textBox3.Text;
             Neos.Contraseña = Controladora.Encriptar.GetSHA256(textBox4.Text);
-            Neos.Perfil = (Modelo.Perfil)comboBox1.SelectedValue;
+            Neos.Perfil = CreaCliente();
             Controladora.Usuario.obtenerInstancia().AgregarUsuario(Neos);
+        }
+
+        private Modelo.Perfil CreaCliente()
+        {
+            return Controladora.Perfiles.obtenerInstancia().ListarPerfiles().Find(item => item.Nombre == "Cliente"); 
         }
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            comboBox1.DataSource = Controladora.Perfiles.obtenerInstancia().ListarPerfiles();
-            button3.BringToFront();
         }
-
+            
         private void button2_Click(object sender, EventArgs e)
         {
             Bienvenida f2 = new Bienvenida();
