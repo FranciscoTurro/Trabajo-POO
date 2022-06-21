@@ -27,11 +27,11 @@ namespace Vista
             Neos.Contraseña = Controladora.Encriptar.GetSHA256(textBox4.Text);
             Neos.Perfil = CreaCliente();
 
-            if (CheckEmail() == true)
+            if (CheckEmail() == true && NombreUnico() == true)
             {
                 Controladora.Usuario.obtenerInstancia().AgregarUsuario(Neos);
             }
-            else return;
+            else MessageBox.Show("Datos ingresados incorrectos. Recuerde que el usuario tiene que ser unico y el email tiene que tener @xx.com");
         }
 
         private bool CheckEmail ()
@@ -43,6 +43,19 @@ namespace Vista
                 return true;
             else
                 return false;
+        }
+
+        private bool NombreUnico()
+        {
+            Modelo.Usuario x = Controladora.Usuario.obtenerInstancia().ListaUsuarios().Find(usuario => usuario.Nombre == textBox1.Text);
+            if (x != null)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
             
         private Modelo.Perfil CreaCliente()
