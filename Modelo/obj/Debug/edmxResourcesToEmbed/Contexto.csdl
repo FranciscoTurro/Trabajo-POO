@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Contexto" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+  <EntityContainer Name="ContextoContainer" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Usuarios" EntityType="Contexto.Usuario" />
+    <EntitySet Name="Perfiles" EntityType="Contexto.Perfil" />
+    <EntitySet Name="Formularios" EntityType="Contexto.Formulario" />
+    <EntitySet Name="Permisos" EntityType="Contexto.Permiso" />
+    <AssociationSet Name="UsuarioPerfil" Association="Contexto.UsuarioPerfil">
+      <End Role="Usuario" EntitySet="Usuarios" />
+      <End Role="Perfil" EntitySet="Perfiles" />
+    </AssociationSet>
+    <AssociationSet Name="FormularioPermiso" Association="Contexto.FormularioPermiso">
+      <End Role="Formulario" EntitySet="Formularios" />
+      <End Role="Permiso" EntitySet="Permisos" />
+    </AssociationSet>
+    <AssociationSet Name="PerfilFormulario" Association="Contexto.PerfilFormulario">
+      <End Role="Perfil" EntitySet="Perfiles" />
+      <End Role="Formulario" EntitySet="Formularios" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Perfil" Relationship="Contexto.UsuarioPerfil" FromRole="Usuario" ToRole="Perfil" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Dni" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Contraseña" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Perfil">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Usuario" Relationship="Contexto.UsuarioPerfil" FromRole="Perfil" ToRole="Usuario" />
+    <NavigationProperty Name="Formulario" Relationship="Contexto.PerfilFormulario" FromRole="Perfil" ToRole="Formulario" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Formulario">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Permiso" Relationship="Contexto.FormularioPermiso" FromRole="Formulario" ToRole="Permiso" />
+    <NavigationProperty Name="Perfil" Relationship="Contexto.PerfilFormulario" FromRole="Formulario" ToRole="Perfil" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="NombreSistema" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Permiso">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Formulario" Relationship="Contexto.FormularioPermiso" FromRole="Permiso" ToRole="Formulario" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="NombreSistema" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <Association Name="UsuarioPerfil">
+    <End Type="Contexto.Usuario" Role="Usuario" Multiplicity="*" />
+    <End Type="Contexto.Perfil" Role="Perfil" Multiplicity="1" />
+  </Association>
+  <Association Name="FormularioPermiso">
+    <End Type="Contexto.Formulario" Role="Formulario" Multiplicity="*" />
+    <End Type="Contexto.Permiso" Role="Permiso" Multiplicity="*" />
+  </Association>
+  <Association Name="PerfilFormulario">
+    <End Type="Contexto.Perfil" Role="Perfil" Multiplicity="*" />
+    <End Type="Contexto.Formulario" Role="Formulario" Multiplicity="*" />
+  </Association>
+</Schema>

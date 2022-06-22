@@ -1,0 +1,70 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Vista
+{
+    public partial class Login : Form
+    {
+        public Login()
+        {
+            InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            List<Modelo.Usuario> ListaUsuarios = new List<Modelo.Usuario>();
+            ListaUsuarios = Controladora.Usuario.obtenerInstancia().ListaUsuarios();  //Se crea una lista con todos los usuarios en la base de datos
+
+            Modelo.Usuario Neos = new Modelo.Usuario();
+            Neos.Nombre = textBox1.Text;
+            Neos.Contraseña = Controladora.Encriptar.GetSHA256(textBox2.Text); 
+            
+            Modelo.Usuario x = ListaUsuarios.Find(usuario => usuario.Nombre == Neos.Nombre && usuario.Contraseña == Neos.Contraseña); //Se busca en la lista un usuario que tenga el mismo nombre y contraseña que el ingresado
+            if (x != null)
+            {
+                MessageBox.Show("Usuario existe en la base de datos");
+            }
+            else
+            {
+                MessageBox.Show("Usuario no existe en la base de datos");
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Bienvenida f2 = new Bienvenida();
+            f2.Show();
+            this.Hide();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (textBox2.PasswordChar == '*')
+            {
+                button4.BringToFront();
+                textBox2.PasswordChar = '\0';
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (textBox2.PasswordChar == '\0')
+            {
+                button3.BringToFront();
+                textBox2.PasswordChar = '*';
+            }
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+            button3.BringToFront();
+        }
+    }
+}
