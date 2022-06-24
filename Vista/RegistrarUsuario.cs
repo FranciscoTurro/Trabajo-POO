@@ -26,15 +26,23 @@ namespace Vista
             Neos.Contraseña = Controladora.Encriptar.GetSHA256(textBox4.Text);
             Neos.Perfil = DarPerfilCliente();
 
-            if (CheckEmail() == false)
+            if (CamposCompletos() == false)
             {
-                MessageBox.Show("El email ingresado no es valido");
+                MessageBox.Show("Falta completar campos");
             }
             if (NombreUnico() == false)  //funciones validan que el email y el nombre sean correctos, devuelven un mensaje de error y no permiten la creacion si se ingresan incorrectamente
             {
                 MessageBox.Show("Usuario ya existente");
             }
-            if (CheckEmail() == true && NombreUnico() == true)
+            if (CheckEmail() == false)
+            {
+                MessageBox.Show("El email ingresado no es valido");
+            }
+            if (LongitudDNI() == false)
+            {
+                MessageBox.Show("El DNI ingresado no es valido");
+            }
+            if (CheckEmail() == true && NombreUnico() == true && CamposCompletos() == true && LongitudDNI() == true)
             {
                 Controladora.Usuario.obtenerInstancia().AgregarUsuario(Neos);
                 MessageBox.Show("Usuario creado con exito"); //avisa que se creo un usuario y limpia las text boxes
@@ -60,6 +68,22 @@ namespace Vista
         {
             Modelo.Usuario x = Controladora.Usuario.obtenerInstancia().ListaUsuarios().Find(usuario => usuario.Nombre == textBox1.Text);
             if (x != null)
+                return false;
+            else
+                return true;
+        }
+
+        private bool CamposCompletos()
+        {
+            if (string.IsNullOrWhiteSpace(textBox1.Text) && string.IsNullOrWhiteSpace(textBox2.Text) && LongitudDNI() == false) //checkea que todos los campos esten completos, excepto la contraseña, que puede ser vacia
+                return false;
+            else
+                return true;
+        }
+
+        private bool LongitudDNI()
+        {
+            if (textBox3.TextLength != 8)
                 return false;
             else
                 return true;
