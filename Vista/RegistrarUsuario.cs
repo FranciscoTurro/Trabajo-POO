@@ -17,7 +17,6 @@ namespace Vista
         {
             InitializeComponent();
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
             Modelo.Usuario Neos = new Modelo.Usuario(); 
@@ -25,13 +24,25 @@ namespace Vista
             Neos.Email = textBox2.Text;
             Neos.Dni = textBox3.Text;
             Neos.Contraseña = Controladora.Encriptar.GetSHA256(textBox4.Text);
-            Neos.Perfil = CreaCliente();
+            Neos.Perfil = DarPerfilCliente();
 
+            if (CheckEmail() == false)
+            {
+                MessageBox.Show("El email ingresado no es valido");
+            }
+            if (NombreUnico() == false)  //funciones validan que el email y el nombre sean correctos, devuelven un mensaje de error y no permiten la creacion si se ingresan incorrectamente
+            {
+                MessageBox.Show("Usuario ya existente");
+            }
             if (CheckEmail() == true && NombreUnico() == true)
             {
                 Controladora.Usuario.obtenerInstancia().AgregarUsuario(Neos);
+                MessageBox.Show("Usuario creado con exito"); //avisa que se creo un usuario y limpia las text boxes
+                textBox1.Clear();
+                textBox2.Clear();
+                textBox3.Clear();
+                textBox4.Clear();
             }
-            else MessageBox.Show("Datos ingresados incorrectos. Recuerde que el usuario tiene que ser unico y el email tiene que tener @xx.com");
         }
 
         private bool CheckEmail ()
@@ -49,16 +60,12 @@ namespace Vista
         {
             Modelo.Usuario x = Controladora.Usuario.obtenerInstancia().ListaUsuarios().Find(usuario => usuario.Nombre == textBox1.Text);
             if (x != null)
-            {
                 return false;
-            }
             else
-            {
                 return true;
-            }
         }
             
-        private Modelo.Perfil CreaCliente()
+        private Modelo.Perfil DarPerfilCliente()
         {
             return Controladora.Perfiles.obtenerInstancia().ListarPerfiles().Find(item => item.Nombre == "Cliente"); 
         }
@@ -66,6 +73,7 @@ namespace Vista
         private void Form2_Load(object sender, EventArgs e)
         {
             button3.BringToFront();
+            textBox3.MaxLength = 8; //se pueden ingresar solo 8 numeros como dni
         }
             
         private void button2_Click(object sender, EventArgs e)
