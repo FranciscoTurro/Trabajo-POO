@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Vista
 {
-    public partial class FormIntermedia : Form
+    public partial class MainApp : Form
     {
-        public FormIntermedia()
+        public MainApp()
         {
             InitializeComponent();
         }
@@ -23,10 +23,15 @@ namespace Vista
 
             List<Modelo.Formulario> formulariosHabilitados = Controladora.Formularios.obtenerInstancia().ListaFormularios(usuario);
             formulariosHabilitados.ForEach((formulario) => {
-                var opcionesStripMenu =
+                var opcionesStripMenu = menuStrip1.Items.Find(formulario.NombreSistema, true);
+                opcionesStripMenu.ToList().ForEach(opciones =>
+                {
+                    if (opciones.Name == formulario.NombreSistema)
+                    {
+                        opciones.Enabled = true;
+                    }
+                });
             });
-
-
         }
     }
 }
