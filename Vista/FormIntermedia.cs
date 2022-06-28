@@ -16,5 +16,17 @@ namespace Vista
         {
             InitializeComponent();
         }
+
+        private void FormIntermedia_Load(object sender, EventArgs e)
+        {
+            Modelo.Usuario usuario = Controladora.Usuario.obtenerInstancia().usuarioActual;
+
+            List<Modelo.Formulario> formulariosHabilitados = Controladora.Formularios.obtenerInstancia().ListaFormularios(usuario);
+            formulariosHabilitados.ForEach((formulario) => {
+                var opcionesStripMenu =
+            });
+
+
+        }
     }
 }
