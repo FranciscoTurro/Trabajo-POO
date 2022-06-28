@@ -8,7 +8,8 @@ namespace Controladora
 {
     public class Usuario
     {
-        private static Usuario instancia;
+        private static Usuario instancia; 
+        public Modelo.Usuario usuarioActual = null;
 
         private Usuario() { }
 
@@ -41,6 +42,11 @@ namespace Controladora
         public List<Modelo.Usuario> ListaUsuarios()
         {
             return Modelo.SingletonContexto.obtenerInstancia().Contexto.Usuarios.ToList();
+        }
+
+        public void AgregarUsuarioActual(Modelo.Usuario usuario)
+        {
+            usuarioActual = usuario;
         }
     }
 }

@@ -19,21 +19,24 @@ namespace Vista
 
         private void button1_Click(object sender, EventArgs e)
         {
-            List<Modelo.Usuario> ListaUsuarios = new List<Modelo.Usuario>();
+                List<Modelo.Usuario> ListaUsuarios = new List<Modelo.Usuario>();
             ListaUsuarios = Controladora.Usuario.obtenerInstancia().ListaUsuarios();  //Se crea una lista con todos los usuarios en la base de datos
 
             Modelo.Usuario Neos = new Modelo.Usuario();
             Neos.Nombre = textBox1.Text;
             Neos.Contraseña = Controladora.Encriptar.GetSHA256(textBox2.Text); 
             
-            Modelo.Usuario x = ListaUsuarios.Find(usuario => usuario.Nombre == Neos.Nombre && usuario.Contraseña == Neos.Contraseña); //Se busca en la lista un usuario que tenga el mismo nombre y contraseña que el ingresado
-            if (x != null)
+            Modelo.Usuario usuarioIngresado = ListaUsuarios.Find(usuario => usuario.Nombre == Neos.Nombre && usuario.Contraseña == Neos.Contraseña); //Se busca en la lista un usuario que tenga el mismo nombre y contraseña que el ingresado
+            if (usuarioIngresado != null)
             {
-                MessageBox.Show("Usuario existe en la base de datos");
+                Controladora.Usuario.obtenerInstancia().AgregarUsuarioActual(usuarioIngresado);
+                //Form1 app = new Form1();
+                //app.Show();
+
             }
             else
             {
-                MessageBox.Show("Usuario no existe en la base de datos");
+                MessageBox.Show("No existe el usuario ingresado.");
             }
         }
 
