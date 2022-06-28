@@ -30,7 +30,7 @@ namespace Vista
             if (usuarioIngresado != null)
             {
                 Controladora.Usuario.obtenerInstancia().AgregarUsuarioActual(usuarioIngresado);
-                FormIntermedia app = new FormIntermedia();
+                MainApp app = new MainApp();
                 app.Show();
             }
             else
