@@ -25,7 +25,7 @@ namespace Vista
 
             Modelo.Usuario usuarioActual = Controladora.Usuario.obtenerInstancia().usuarioActual; //traigo al usuario actual
             List<Modelo.Formulario> formularios = Controladora.Formularios.obtenerInstancia().ListaFormularios(usuarioActual); //traigo la lista de formularios a los que tiene acceso el usuario actual
-            Modelo.Formulario formularioBuscado = formularios.Find(f => f.NombreSistema == "formGestionarUsuarios");  //veo si entre los formularios a los que tiene acceso esta formGestionarUsuarios
+            Modelo.Formulario formularioBuscado = formularios.Find(f => (f.NombreSistema == "formGestionarUsuarios") || (f.NombreSistema == "RegistrarUsuario"));  //veo si entre los formularios a los que tiene acceso esta formGestionarUsuarios
             List<Modelo.Permiso> permisos = Controladora.Permisos.obtenerInstancia().ListaPermisos(formularioBuscado); //busco los permisos que tengo con ese formulario
             permisos.ForEach(item =>
             {
