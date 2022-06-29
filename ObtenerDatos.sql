@@ -1,4 +1,4 @@
-use EJEMPLOBD
+use idea
 
 select * from Usuarios
 go

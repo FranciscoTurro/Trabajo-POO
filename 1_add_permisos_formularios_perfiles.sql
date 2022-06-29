@@ -10,7 +10,6 @@ insert into Permisos values ('Guardar', 'btnGuardar')
  insert into Formularios values ('Usuario', 'RegistrarUsuario')
 
 -- Agregar Perfiles
-insert into Perfiles values ('Super Admin')
 insert into Perfiles values ('Admin')
 insert into Perfiles values ('Cliente')
 

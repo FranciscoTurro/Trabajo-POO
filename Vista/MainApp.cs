@@ -33,5 +33,11 @@ namespace Vista
                 });
             });
         }
+
+        private void agregarToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            RegistrarUsuario app = new RegistrarUsuario();
+            app.Show();
+        }
     }
 }

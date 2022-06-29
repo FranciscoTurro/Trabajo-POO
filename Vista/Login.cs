@@ -24,27 +24,21 @@ namespace Vista
 
             Modelo.Usuario Neos = new Modelo.Usuario();
             Neos.Nombre = textBox1.Text;
-            Neos.Contraseña = (textBox2.Text); 
-            //Neos.Contraseña = Controladora.Encriptar.GetSHA256(textBox2.Text); 
-            
-            Modelo.Usuario usuarioIngresado = ListaUsuarios.Find(usuario => usuario.Nombre == Neos.Nombre && usuario.Contraseña == Neos.Contraseña); //Se busca en la lista un usuario que tenga el mismo nombre y contraseña que el ingresado
+            Neos.Contraseña = Controladora.Encriptar.GetSHA256(textBox2.Text);
+
+            Modelo.Usuario usuarioIngresado = ListaUsuarios.Find(usuario => usuario.Nombre == Neos.Nombre && usuario.Contraseña == Neos.Contraseña);//Se busca en la lista un usuario que tenga el mismo nombre y contraseña que el ingresado
+
             if (usuarioIngresado != null)
             {
                 Controladora.Usuario.obtenerInstancia().AgregarUsuarioActual(usuarioIngresado);
                 MainApp app = new MainApp();
                 app.Show();
+                this.Hide();
             }
             else
             {
                 MessageBox.Show("No existe el usuario ingresado.");
             }
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            Bienvenida f2 = new Bienvenida();
-            f2.Show();
-            this.Hide();
         }
 
         private void button3_Click(object sender, EventArgs e)

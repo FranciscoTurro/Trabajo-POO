@@ -24,7 +24,7 @@ namespace Vista
             Neos.Email = textBox2.Text;
             Neos.Dni = textBox3.Text;
             Neos.Contraseña = Controladora.Encriptar.GetSHA256(textBox4.Text);
-            Neos.Perfil = DarPerfilCliente();
+            Neos.Perfil = (Modelo.Perfil)comboBox1.SelectedValue;
 
             if (CamposCompletos() == false)
             {
@@ -89,22 +89,16 @@ namespace Vista
                 return true;
         }
             
-        private Modelo.Perfil DarPerfilCliente()
-        {
-            return Controladora.Perfiles.obtenerInstancia().ListarPerfiles().Find(item => item.Nombre == "Cliente"); 
-        }
+        //private Modelo.Perfil DarPerfilCliente()
+        //{
+        //    return Controladora.Perfiles.obtenerInstancia().ListarPerfiles().Find(item => item.Nombre == "Cliente"); 
+        //}
 
         private void Form2_Load(object sender, EventArgs e)
         {
             button3.BringToFront();
             textBox3.MaxLength = 8; //se pueden ingresar solo 8 numeros como dni
-        }
-            
-        private void button2_Click(object sender, EventArgs e)
-        {
-            Bienvenida f2 = new Bienvenida();
-            f2.Show();
-            this.Hide();
+            comboBox1.DataSource = Controladora.Perfiles.obtenerInstancia().ListarPerfiles();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -129,5 +123,7 @@ namespace Vista
         {
             e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar); //toma solo numeros como input valido
         }
+
+       
     }
 }
