@@ -1,5 +1,4 @@
-﻿
-namespace Vista
+﻿namespace Vista
 {
     partial class MainApp
     {
@@ -29,104 +28,58 @@ namespace Vista
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.aToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.formGestionarUsuarios = new System.Windows.Forms.ToolStripMenuItem();
-            this.agregarToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.modificarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.eliminarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.bToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.menuStrip1.SuspendLayout();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // menuStrip1
+            // button1
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.aToolStripMenuItem,
-            this.bToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
+            this.button1.Location = new System.Drawing.Point(195, 69);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "Agregar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // aToolStripMenuItem
+            // button2
             // 
-            this.aToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.formGestionarUsuarios});
-            this.aToolStripMenuItem.Name = "aToolStripMenuItem";
-            this.aToolStripMenuItem.Size = new System.Drawing.Size(27, 20);
-            this.aToolStripMenuItem.Text = "A";
+            this.button2.Location = new System.Drawing.Point(276, 69);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 1;
+            this.button2.Text = "Modificar";
+            this.button2.UseVisualStyleBackColor = true;
             // 
-            // formGestionarUsuarios
+            // button3
             // 
-            this.formGestionarUsuarios.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.agregarToolStripMenuItem1,
-            this.modificarToolStripMenuItem,
-            this.eliminarToolStripMenuItem});
-            this.formGestionarUsuarios.Enabled = false;
-            this.formGestionarUsuarios.Name = "formGestionarUsuarios";
-            this.formGestionarUsuarios.Size = new System.Drawing.Size(180, 22);
-            this.formGestionarUsuarios.Text = "Lista";
-            // 
-            // agregarToolStripMenuItem1
-            // 
-            this.agregarToolStripMenuItem1.Name = "agregarToolStripMenuItem1";
-            this.agregarToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
-            this.agregarToolStripMenuItem1.Text = "Agregar";
-            this.agregarToolStripMenuItem1.Click += new System.EventHandler(this.agregarToolStripMenuItem1_Click);
-            // 
-            // modificarToolStripMenuItem
-            // 
-            this.modificarToolStripMenuItem.Name = "modificarToolStripMenuItem";
-            this.modificarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.modificarToolStripMenuItem.Text = "Modificar";
-            // 
-            // eliminarToolStripMenuItem
-            // 
-            this.eliminarToolStripMenuItem.Name = "eliminarToolStripMenuItem";
-            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.eliminarToolStripMenuItem.Text = "Eliminar";
-            // 
-            // bToolStripMenuItem
-            // 
-            this.bToolStripMenuItem.Name = "bToolStripMenuItem";
-            this.bToolStripMenuItem.Size = new System.Drawing.Size(26, 20);
-            this.bToolStripMenuItem.Text = "B";
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            this.button3.Location = new System.Drawing.Point(357, 69);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 2;
+            this.button3.Text = "Eliminar";
+            this.button3.UseVisualStyleBackColor = true;
             // 
             // MainApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.menuStrip1);
-            this.MainMenuStrip = this.menuStrip1;
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Name = "MainApp";
             this.Text = "MainApp";
-            this.Load += new System.EventHandler(this.FormIntermedia_Load);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.Load += new System.EventHandler(this.MainApp_Load);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem aToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem bToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem formGestionarUsuarios;
-        private System.Windows.Forms.ToolStripMenuItem agregarToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem modificarToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem eliminarToolStripMenuItem;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
     }
 }

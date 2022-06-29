@@ -57,17 +57,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MainApp.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MainApp.Designer.cs">
-      <DependentUpon>MainApp.cs</DependentUpon>
-    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainApp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainApp.Designer.cs">
+      <DependentUpon>MainApp.cs</DependentUpon>
     </Compile>
     <Compile Include="RegistrarUsuario.cs">
       <SubType>Form</SubType>
@@ -77,11 +77,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="MainApp.resx">
-      <DependentUpon>MainApp.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainApp.resx">
+      <DependentUpon>MainApp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RegistrarUsuario.resx">
       <DependentUpon>RegistrarUsuario.cs</DependentUpon>
