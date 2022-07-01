@@ -19,7 +19,7 @@ namespace Vista
 
         private void button1_Click(object sender, EventArgs e)
         {
-                List<Modelo.Usuario> ListaUsuarios = new List<Modelo.Usuario>();
+            List<Modelo.Usuario> ListaUsuarios = new List<Modelo.Usuario>();
             ListaUsuarios = Controladora.Usuario.obtenerInstancia().ListaUsuarios();  //Se crea una lista con todos los usuarios en la base de datos
 
             Modelo.Usuario Neos = new Modelo.Usuario();
