@@ -30,8 +30,8 @@ namespace Vista
             permisos.ForEach(item =>
             {
                 if (item.NombreSistema == "btnAgregar") button1.Show();
-                if (item.NombreSistema == "btnEliminar") button3.Show();
                 if (item.NombreSistema == "btnModificar") button2.Show();
+                if (item.NombreSistema == "btnEliminar") button3.Show();
             });
         }
 
@@ -39,6 +39,13 @@ namespace Vista
         {
             RegistrarUsuario app = new RegistrarUsuario();
             app.Show();
+            this.Hide();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            BorrarUsuario borrar = new BorrarUsuario();
+            borrar.Show();
             this.Hide();
         }
     }

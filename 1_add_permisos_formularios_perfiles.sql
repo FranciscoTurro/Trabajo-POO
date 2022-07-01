@@ -2,8 +2,8 @@
 insert into Permisos values ('Agregar', 'btnAgregar')
 insert into Permisos values ('Eliminar', 'btnEliminar')
 insert into Permisos values ('Modificar', 'btnModificar')
-insert into Permisos values ('Cancelar', 'btnCancelar')
-insert into Permisos values ('Guardar', 'btnGuardar')
+--insert into Permisos values ('Cancelar', 'btnCancelar')
+--insert into Permisos values ('Guardar', 'btnGuardar')
 
 -- Agregar Formularios
  insert into Formularios values ('Gestionar Usuarios', 'formGestionarUsuarios')

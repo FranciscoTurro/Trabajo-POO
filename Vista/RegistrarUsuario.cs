@@ -124,6 +124,11 @@ namespace Vista
             e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar); //toma solo numeros como input valido
         }
 
-       
+        private void button2_Click(object sender, EventArgs e)
+        {
+            MainApp app = new MainApp();
+            app.Show();
+            this.Hide();
+        }
     }
 }

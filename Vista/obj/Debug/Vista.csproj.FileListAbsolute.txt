@@ -94,3 +94,4 @@ C:\Users\fturr\Desktop\Trabajo-POO\Vista\obj\Debug\Vista.exe
 C:\Users\fturr\Desktop\Trabajo-POO\Vista\obj\Debug\Vista.pdb
 C:\Users\Navegador\Desktop\Nueva carpeta\Vista\obj\Debug\Vista.MainApp.resources
 C:\Users\fturr\Desktop\Trabajo-POO\Vista\obj\Debug\Vista.MainApp.resources
+C:\Users\fturr\Desktop\Trabajo-POO\Vista\obj\Debug\Vista.BorrarUsuario.resources
