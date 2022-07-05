@@ -19,34 +19,21 @@ namespace Vista
 
         private void MainApp_Load(object sender, EventArgs e)
         {
-            button1.Hide();
-            button2.Hide();
-            button3.Hide();
-
-            Modelo.Usuario usuarioActual = Controladora.Usuario.obtenerInstancia().usuarioActual; //traigo al usuario actual
-            List<Modelo.Formulario> formularios = Controladora.Formularios.obtenerInstancia().ListaFormularios(usuarioActual); //traigo la lista de formularios a los que tiene acceso el usuario actual
-            Modelo.Formulario formularioBuscado = formularios.Find(f => f.NombreSistema == "formGestionarUsuarios" || f.NombreSistema == "RegistrarUsuario");  //veo si entre los formularios a los que tiene acceso esta formGestionarUsuarios
-            List<Modelo.Permiso> permisos = Controladora.Permisos.obtenerInstancia().ListaPermisos(formularioBuscado); //busco los permisos que tengo con ese formulario
-            permisos.ForEach(item =>
-            {
-                if (item.NombreSistema == "btnAgregar") button1.Show();
-                if (item.NombreSistema == "btnModificar") button2.Show();
-                if (item.NombreSistema == "btnEliminar") button3.Show();
+            Modelo.Usuario usuario = Controladora.Usuario.obtenerInstancia().usuarioActual;
+            List<Modelo.Formulario> formularios_habilitados = Controladora.Formularios.obtenerInstancia().ListaFormularios(usuario);
+            formularios_habilitados.ForEach((formulario) => {
+                foreach (ToolStripMenuItem categoria in menuStrip1.Items)
+                {
+                    foreach (ToolStripMenuItem form in categoria.DropDownItems)
+                    {
+                        if (form.Name == formulario.NombreSistema)
+                        {
+                            form.Enabled = true;
+                            return;
+                        }
+                    }
+                }
             });
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            RegistrarUsuario app = new RegistrarUsuario();
-            app.Show();
-            this.Hide();
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            BorrarUsuario borrar = new BorrarUsuario();
-            borrar.Show();
-            this.Hide();
         }
     }
 }
