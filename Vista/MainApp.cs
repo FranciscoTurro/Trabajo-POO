@@ -35,5 +35,12 @@ namespace Vista
                 }
             });
         }
+
+        private void formGestionarUsuarios_Click(object sender, EventArgs e)
+        {
+            RegistrarUsuario app = new RegistrarUsuario();
+            app.Show();
+            this.Hide();
+        }
     }
 }

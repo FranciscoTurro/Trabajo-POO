@@ -30,8 +30,9 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.btnAgregar = new System.Windows.Forms.ToolStripMenuItem();
+            this.AdminAgregar = new System.Windows.Forms.ToolStripMenuItem();
             this.clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.formGestionarUsuarios = new System.Windows.Forms.ToolStripMenuItem();
+            this.AdminEliminar = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,10 +50,19 @@
             // btnAgregar
             // 
             this.btnAgregar.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.formGestionarUsuarios});
+            this.AdminAgregar,
+            this.AdminEliminar});
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(55, 20);
             this.btnAgregar.Text = "Admin";
+            // 
+            // AdminAgregar
+            // 
+            this.AdminAgregar.Enabled = false;
+            this.AdminAgregar.Name = "AdminAgregar";
+            this.AdminAgregar.Size = new System.Drawing.Size(180, 22);
+            this.AdminAgregar.Text = "Agregar clientes";
+            this.AdminAgregar.Click += new System.EventHandler(this.formGestionarUsuarios_Click);
             // 
             // clientesToolStripMenuItem
             // 
@@ -60,12 +70,12 @@
             this.clientesToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.clientesToolStripMenuItem.Text = "Clientes";
             // 
-            // formGestionarUsuarios
+            // AdminEliminar
             // 
-            this.formGestionarUsuarios.Enabled = false;
-            this.formGestionarUsuarios.Name = "formGestionarUsuarios";
-            this.formGestionarUsuarios.Size = new System.Drawing.Size(180, 22);
-            this.formGestionarUsuarios.Text = "Agregar";
+            this.AdminEliminar.Enabled = false;
+            this.AdminEliminar.Name = "AdminEliminar";
+            this.AdminEliminar.Size = new System.Drawing.Size(180, 22);
+            this.AdminEliminar.Text = "Eliminar";
             // 
             // MainApp
             // 
@@ -89,6 +99,7 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem btnAgregar;
         private System.Windows.Forms.ToolStripMenuItem clientesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem formGestionarUsuarios;
+        private System.Windows.Forms.ToolStripMenuItem AdminAgregar;
+        private System.Windows.Forms.ToolStripMenuItem AdminEliminar;
     }
 }
