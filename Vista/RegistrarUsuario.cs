@@ -30,7 +30,7 @@ namespace Vista
 
             if (usuarioactual.Perfil.Nombre == "Cliente")
             {
-                Neos.Perfil = DarPerfilCliente();
+                Neos.Perfil = DarPerfilCliente(); 
             }
 
             if (CamposCompletos() == false)

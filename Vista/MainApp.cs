@@ -20,12 +20,12 @@ namespace Vista
         private void MainApp_Load(object sender, EventArgs e)
         {
             Modelo.Usuario usuario = Controladora.Usuario.obtenerInstancia().usuarioActual;
-            List<Modelo.Formulario> formularios_habilitados = Controladora.Formularios.obtenerInstancia().ListaFormularios(usuario);
-            formularios_habilitados.ForEach((formulario) =>
+            List<Modelo.Formulario> formulariosUsuario = Controladora.Formularios.obtenerInstancia().ListaFormularios(usuario); //hago una lista con todos los formularios del usuario actual
+            formulariosUsuario.ForEach((formulario) => //por cada formulario en la lista checkeo una por una las opciones del menustrip, y si una es igual la hace visible
             {
-                foreach (ToolStripMenuItem categoria in menuStrip1.Items)
+                foreach (ToolStripMenuItem opcion in menuStrip1.Items)
                 {
-                    foreach (ToolStripMenuItem form in categoria.DropDownItems)
+                    foreach (ToolStripMenuItem form in opcion.DropDownItems)
                     {
                         if (form.Name == formulario.NombreSistema)
                         {
@@ -47,6 +47,13 @@ namespace Vista
         private void EliminarCliente_Click(object sender, EventArgs e)
         {
             BorrarUsuario app = new BorrarUsuario();
+            app.Show();
+            this.Hide();
+        }
+
+        private void ModificarCliente_Click(object sender, EventArgs e)
+        {
+            ModificarUsuario app = new ModificarUsuario();
             app.Show();
             this.Hide();
         }

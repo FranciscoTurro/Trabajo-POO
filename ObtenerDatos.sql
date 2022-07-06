@@ -1,4 +1,4 @@
-use EJEMPLOTP
+use EJEMPLOPROGRAMACION
 
 select * from Usuarios
 go
