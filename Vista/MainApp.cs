@@ -44,20 +44,6 @@ namespace Vista
             this.Hide();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            DialogResult respuesta = MessageBox.Show("Seguro de querer deslogearse?. Esto reinicia la aplicacion", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (respuesta == DialogResult.Yes)
-            {
-                Application.Restart();
-
-            }
-            if (respuesta == DialogResult.No)
-            {
-                return;
-            }
-        }
-
         private void EliminarCliente_Click(object sender, EventArgs e)
         {
             BorrarUsuario app = new BorrarUsuario();

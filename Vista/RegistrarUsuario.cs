@@ -19,12 +19,19 @@ namespace Vista
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            Modelo.Usuario Neos = new Modelo.Usuario(); 
+            Modelo.Usuario usuarioactual = Controladora.Usuario.obtenerInstancia().usuarioActual;
+            Modelo.Usuario Neos = new Modelo.Usuario();
             Neos.Nombre = textBox1.Text;
             Neos.Email = textBox2.Text;
             Neos.Dni = textBox3.Text;
             Neos.Contraseña = Controladora.Encriptar.GetSHA256(textBox4.Text);
             Neos.Perfil = (Modelo.Perfil)comboBox1.SelectedValue;
+
+
+            if (usuarioactual.Perfil.Nombre == "Cliente")
+            {
+                Neos.Perfil = DarPerfilCliente();
+            }
 
             if (CamposCompletos() == false)
             {
@@ -89,16 +96,28 @@ namespace Vista
                 return true;
         }
             
-        //private Modelo.Perfil DarPerfilCliente()
-        //{
-        //    return Controladora.Perfiles.obtenerInstancia().ListarPerfiles().Find(item => item.Nombre == "Cliente"); 
-        //}
+        private Modelo.Perfil DarPerfilCliente()
+        {
+            return Controladora.Perfiles.obtenerInstancia().ListarPerfiles().Find(item => item.Nombre == "Cliente"); 
+        }
 
         private void Form2_Load(object sender, EventArgs e)
         {
             button3.BringToFront();
             textBox3.MaxLength = 8; //se pueden ingresar solo 8 numeros como dni
-            comboBox1.DataSource = Controladora.Perfiles.obtenerInstancia().ListarPerfiles();
+
+
+            Modelo.Usuario usuarioactual = Controladora.Usuario.obtenerInstancia().usuarioActual; 
+            if (usuarioactual.Perfil.Nombre == "Cliente")  //si el usuario actual es un cliente escondo la posibilidad de crear un admin
+            {
+                comboBox1.Hide();
+                label5.Hide();
+            }
+            else
+            {
+                comboBox1.DataSource = Controladora.Perfiles.obtenerInstancia().ListarPerfiles();
+
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)

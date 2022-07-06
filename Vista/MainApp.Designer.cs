@@ -32,7 +32,6 @@
             this.btnAgregar = new System.Windows.Forms.ToolStripMenuItem();
             this.AgregarCliente = new System.Windows.Forms.ToolStripMenuItem();
             this.EliminarCliente = new System.Windows.Forms.ToolStripMenuItem();
-            this.button1 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,7 +57,7 @@
             // AgregarCliente
             // 
             this.AgregarCliente.Name = "AgregarCliente";
-            this.AgregarCliente.Size = new System.Drawing.Size(180, 22);
+            this.AgregarCliente.Size = new System.Drawing.Size(159, 22);
             this.AgregarCliente.Text = "Agregar clientes";
             this.AgregarCliente.Visible = false;
             this.AgregarCliente.Click += new System.EventHandler(this.formGestionarUsuarios_Click);
@@ -66,27 +65,16 @@
             // EliminarCliente
             // 
             this.EliminarCliente.Name = "EliminarCliente";
-            this.EliminarCliente.Size = new System.Drawing.Size(180, 22);
+            this.EliminarCliente.Size = new System.Drawing.Size(159, 22);
             this.EliminarCliente.Text = "Eliminar";
             this.EliminarCliente.Visible = false;
             this.EliminarCliente.Click += new System.EventHandler(this.EliminarCliente_Click);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(713, 415);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Log off";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // MainApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainApp";
@@ -105,6 +93,5 @@
         private System.Windows.Forms.ToolStripMenuItem btnAgregar;
         private System.Windows.Forms.ToolStripMenuItem AgregarCliente;
         private System.Windows.Forms.ToolStripMenuItem EliminarCliente;
-        private System.Windows.Forms.Button button1;
     }
 }
