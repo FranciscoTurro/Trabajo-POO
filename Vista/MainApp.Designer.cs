@@ -60,7 +60,7 @@
             // 
             this.AgregarCliente.Name = "AgregarCliente";
             this.AgregarCliente.Size = new System.Drawing.Size(180, 22);
-            this.AgregarCliente.Text = "Agregar clientes";
+            this.AgregarCliente.Text = "Agregar usuario";
             this.AgregarCliente.Visible = false;
             this.AgregarCliente.Click += new System.EventHandler(this.formGestionarUsuarios_Click);
             // 
@@ -68,7 +68,7 @@
             // 
             this.EliminarCliente.Name = "EliminarCliente";
             this.EliminarCliente.Size = new System.Drawing.Size(180, 22);
-            this.EliminarCliente.Text = "Eliminar clientes";
+            this.EliminarCliente.Text = "Eliminar usuarios";
             this.EliminarCliente.Visible = false;
             this.EliminarCliente.Click += new System.EventHandler(this.EliminarCliente_Click);
             // 
@@ -76,7 +76,7 @@
             // 
             this.ModificarCliente.Name = "ModificarCliente";
             this.ModificarCliente.Size = new System.Drawing.Size(180, 22);
-            this.ModificarCliente.Text = "Modificar Clientes";
+            this.ModificarCliente.Text = "Modificar usuarios";
             this.ModificarCliente.Visible = false;
             this.ModificarCliente.Click += new System.EventHandler(this.ModificarCliente_Click);
             // 

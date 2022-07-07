@@ -9,5 +9,5 @@
  insert into Formularios values ('ModificarCliente', 'ModificarCliente')
 
 -- Agregar Perfiles
-insert into Perfiles values ('Admin')
-insert into Perfiles values ('Cliente')
+insert into Perfiles values ('Gerente')
+insert into Perfiles values ('Empleado')

@@ -28,9 +28,9 @@ namespace Vista
             Neos.Perfil = (Modelo.Perfil)comboBox1.SelectedValue;
 
 
-            if (usuarioactual.Perfil.Nombre == "Cliente")
+            if (usuarioactual.Perfil.Nombre == "Empleado")
             {
-                Neos.Perfil = DarPerfilCliente(); 
+                Neos.Perfil = DarPerfilEmpleado(); 
             }
 
             if (CamposCompletos() == false)
@@ -96,19 +96,18 @@ namespace Vista
                 return true;
         }
             
-        private Modelo.Perfil DarPerfilCliente()
+        private Modelo.Perfil DarPerfilEmpleado()
         {
-            return Controladora.Perfiles.obtenerInstancia().ListarPerfiles().Find(item => item.Nombre == "Cliente"); 
+            return Controladora.Perfiles.obtenerInstancia().ListarPerfiles().Find(item => item.Nombre == "Empleado"); 
         }
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            button3.BringToFront();
             textBox3.MaxLength = 8; //se pueden ingresar solo 8 numeros como dni
 
 
             Modelo.Usuario usuarioactual = Controladora.Usuario.obtenerInstancia().usuarioActual; 
-            if (usuarioactual.Perfil.Nombre == "Cliente")  //si el usuario actual es un cliente escondo la posibilidad de crear un admin
+            if (usuarioactual.Perfil.Nombre == "Empleado")  //si el usuario actual es un empleado escondo la posibilidad de crear un gerente
             {
                 comboBox1.Hide();
                 label5.Hide();
@@ -119,25 +118,6 @@ namespace Vista
 
             }
         }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            if(textBox4.PasswordChar == '*')
-            {
-                button4.BringToFront();
-                textBox4.PasswordChar = '\0';
-            }
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            if (textBox4.PasswordChar == '\0')
-            {
-                button3.BringToFront();
-                textBox4.PasswordChar = '*';
-            }
-        }
-
         private void textBox3_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar); //toma solo numeros como input valido

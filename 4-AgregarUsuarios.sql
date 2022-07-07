@@ -5,5 +5,5 @@ values (
 	('a@a.com'),
 	('123456'),
 	('8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918'),
-	(SELECT Id from Perfiles WHERE Perfiles.Nombre='Admin')
+	(SELECT Id from Perfiles WHERE Perfiles.Nombre='Gerente')
 )
