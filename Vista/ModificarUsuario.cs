@@ -35,10 +35,7 @@ namespace Vista
             else
             {
                 comboBox1.DataSource = Controladora.Perfiles.obtenerInstancia().ListarPerfiles();
-
             }
-
-
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -90,11 +87,6 @@ namespace Vista
                 return false;
             else
                 return true;
-        }
-
-        private Modelo.Perfil DarPerfilEmpleado()
-        {
-            return Controladora.Perfiles.obtenerInstancia().ListarPerfiles().Find(item => item.Nombre == "Empleado");
         }
 
         private void textBox3_KeyPress(object sender, KeyPressEventArgs e)
