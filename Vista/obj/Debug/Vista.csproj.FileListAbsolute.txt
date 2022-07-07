@@ -85,7 +85,6 @@ C:\Users\fturr\Desktop\Trabajo-POO\Vista\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\fturr\Desktop\Trabajo-POO\Vista\obj\Debug\Vista.csproj.AssemblyReference.cache
 C:\Users\fturr\Desktop\Trabajo-POO\Vista\obj\Debug\Vista.csproj.SuggestedBindingRedirects.cache
 C:\Users\fturr\Desktop\Trabajo-POO\Vista\obj\Debug\Vista.Login.resources
-C:\Users\fturr\Desktop\Trabajo-POO\Vista\obj\Debug\Vista.RegistrarUsuario.resources
 C:\Users\fturr\Desktop\Trabajo-POO\Vista\obj\Debug\Vista.Properties.Resources.resources
 C:\Users\fturr\Desktop\Trabajo-POO\Vista\obj\Debug\Vista.csproj.GenerateResource.cache
 C:\Users\fturr\Desktop\Trabajo-POO\Vista\obj\Debug\Vista.csproj.CoreCompileInputs.cache
@@ -94,7 +93,6 @@ C:\Users\fturr\Desktop\Trabajo-POO\Vista\obj\Debug\Vista.exe
 C:\Users\fturr\Desktop\Trabajo-POO\Vista\obj\Debug\Vista.pdb
 C:\Users\Navegador\Desktop\Nueva carpeta\Vista\obj\Debug\Vista.MainApp.resources
 C:\Users\fturr\Desktop\Trabajo-POO\Vista\obj\Debug\Vista.MainApp.resources
-C:\Users\fturr\Desktop\Trabajo-POO\Vista\obj\Debug\Vista.BorrarUsuario.resources
 C:\Users\Navegador\Desktop\Trabajo-POO\Vista\bin\Debug\Vista.exe.config
 C:\Users\Navegador\Desktop\Trabajo-POO\Vista\bin\Debug\Vista.exe
 C:\Users\Navegador\Desktop\Trabajo-POO\Vista\bin\Debug\Vista.pdb
@@ -119,4 +117,4 @@ C:\Users\Navegador\Desktop\Trabajo-POO\Vista\obj\Debug\Vista.csproj.CoreCompileI
 C:\Users\Navegador\Desktop\Trabajo-POO\Vista\obj\Debug\Vista.csproj.CopyComplete
 C:\Users\Navegador\Desktop\Trabajo-POO\Vista\obj\Debug\Vista.exe
 C:\Users\Navegador\Desktop\Trabajo-POO\Vista\obj\Debug\Vista.pdb
-C:\Users\fturr\Desktop\Trabajo-POO\Vista\obj\Debug\Vista.ModificarUsuario.resources
+C:\Users\fturr\Desktop\Trabajo-POO\Vista\obj\Debug\Vista.GestionarUsuarios.resources

@@ -30,9 +30,7 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.btnAgregar = new System.Windows.Forms.ToolStripMenuItem();
-            this.AgregarCliente = new System.Windows.Forms.ToolStripMenuItem();
-            this.EliminarCliente = new System.Windows.Forms.ToolStripMenuItem();
-            this.ModificarCliente = new System.Windows.Forms.ToolStripMenuItem();
+            this.GestionarClientes = new System.Windows.Forms.ToolStripMenuItem();
             this.button1 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -50,36 +48,18 @@
             // btnAgregar
             // 
             this.btnAgregar.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.AgregarCliente,
-            this.EliminarCliente,
-            this.ModificarCliente});
+            this.GestionarClientes});
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(69, 20);
             this.btnAgregar.Text = "Opciones";
             // 
-            // AgregarCliente
+            // GestionarClientes
             // 
-            this.AgregarCliente.Name = "AgregarCliente";
-            this.AgregarCliente.Size = new System.Drawing.Size(172, 22);
-            this.AgregarCliente.Text = "Agregar usuario";
-            this.AgregarCliente.Visible = false;
-            this.AgregarCliente.Click += new System.EventHandler(this.formGestionarUsuarios_Click);
-            // 
-            // EliminarCliente
-            // 
-            this.EliminarCliente.Name = "EliminarCliente";
-            this.EliminarCliente.Size = new System.Drawing.Size(172, 22);
-            this.EliminarCliente.Text = "Eliminar usuarios";
-            this.EliminarCliente.Visible = false;
-            this.EliminarCliente.Click += new System.EventHandler(this.EliminarCliente_Click);
-            // 
-            // ModificarCliente
-            // 
-            this.ModificarCliente.Name = "ModificarCliente";
-            this.ModificarCliente.Size = new System.Drawing.Size(172, 22);
-            this.ModificarCliente.Text = "Modificar usuarios";
-            this.ModificarCliente.Visible = false;
-            this.ModificarCliente.Click += new System.EventHandler(this.ModificarCliente_Click);
+            this.GestionarClientes.Name = "GestionarClientes";
+            this.GestionarClientes.Size = new System.Drawing.Size(180, 22);
+            this.GestionarClientes.Text = "Gestionar usuarios";
+            this.GestionarClientes.Visible = false;
+            this.GestionarClientes.Click += new System.EventHandler(this.formGestionarUsuarios_Click);
             // 
             // button1
             // 
@@ -113,9 +93,7 @@
 
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem btnAgregar;
-        private System.Windows.Forms.ToolStripMenuItem AgregarCliente;
-        private System.Windows.Forms.ToolStripMenuItem EliminarCliente;
-        private System.Windows.Forms.ToolStripMenuItem ModificarCliente;
+        private System.Windows.Forms.ToolStripMenuItem GestionarClientes;
         private System.Windows.Forms.Button button1;
     }
 }

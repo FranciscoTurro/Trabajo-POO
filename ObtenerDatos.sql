@@ -1,5 +1,3 @@
-use EJEMPLOPROGRAMACION
-
 select * from Usuarios
 go
 select * from Perfiles

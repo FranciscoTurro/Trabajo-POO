@@ -39,21 +39,7 @@ namespace Vista
 
         private void formGestionarUsuarios_Click(object sender, EventArgs e)
         {
-            RegistrarUsuario app = new RegistrarUsuario();
-            app.Show();
-            this.Hide();
-        }
-
-        private void EliminarCliente_Click(object sender, EventArgs e)
-        {
-            BorrarUsuario app = new BorrarUsuario();
-            app.Show();
-            this.Hide();
-        }
-
-        private void ModificarCliente_Click(object sender, EventArgs e)
-        {
-            ModificarUsuario app = new ModificarUsuario();
+            GestionarUsuarios app = new GestionarUsuarios();
             app.Show();
             this.Hide();
         }
