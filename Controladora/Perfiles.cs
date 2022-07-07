@@ -25,5 +25,17 @@ namespace Controladora
         {
             return Modelo.SingletonContexto.obtenerInstancia().Contexto.Perfiles.ToList();
         }
+
+        public void AgregarPerfil(Modelo.Perfil perfil)
+        {
+            Modelo.SingletonContexto.obtenerInstancia().Contexto.Perfiles.Add(perfil);
+            Modelo.SingletonContexto.obtenerInstancia().Contexto.SaveChanges();
+        }
+
+        public void EliminarPerfil(Modelo.Perfil perfil)
+        {
+            Modelo.SingletonContexto.obtenerInstancia().Contexto.Perfiles.Remove(perfil);
+            Modelo.SingletonContexto.obtenerInstancia().Contexto.SaveChanges();
+        }
     }
 }

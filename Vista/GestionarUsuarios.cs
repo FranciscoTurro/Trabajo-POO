@@ -22,12 +22,12 @@ namespace Vista
         private void GestionarUsuarios_Load(object sender, EventArgs e)
         {
             List<Modelo.Usuario> listaUsuarios = Controladora.Usuario.obtenerInstancia().ListaUsuarios();
-            dataGridView1.DataSource = listaUsuarios;
+            dataGridView1.DataSource = listaUsuarios; //cargo el datagridview con la lista de todos los usuarios en la base de datos
 
             textBox3.MaxLength = 8; //se pueden ingresar solo 8 numeros como dni
 
             Modelo.Usuario usuarioactual = Controladora.Usuario.obtenerInstancia().usuarioActual;
-            if (usuarioactual.Perfil.Nombre != "Gerente")  //si el usuario actual no es un gerente escondo la posibilidad de crear perfiles nuevos
+            if (usuarioactual.Perfil.Nombre != "Gerente")  //si el usuario actual no es un gerente escondo la posibilidad de cambiar perfiles 
             {
                 comboBox1.Hide();
                 label5.Hide();
@@ -85,7 +85,7 @@ namespace Vista
         {
             Modelo.Usuario usuarioactual = Controladora.Usuario.obtenerInstancia().usuarioActual;
             Modelo.Usuario seleccionado = dataGridView1.SelectedRows[0].DataBoundItem as Modelo.Usuario;
-
+//si el textbox NO esta vacio se reemplaza el atributo correspondiente del usuario seleccionado
             if (!string.IsNullOrWhiteSpace(textBox1.Text) && NombreUnico() == true) { seleccionado.Nombre = textBox1.Text; }
             if (!string.IsNullOrWhiteSpace(textBox2.Text) && CheckEmail() == true) { seleccionado.Email = textBox2.Text; }
             if (!string.IsNullOrWhiteSpace(textBox3.Text) && LongitudDNI() == true) { seleccionado.Dni = textBox3.Text; }
@@ -113,7 +113,7 @@ namespace Vista
         private void button1_Click(object sender, EventArgs e) //agregar usuario
         {
             Modelo.Usuario usuarioactual = Controladora.Usuario.obtenerInstancia().usuarioActual;
-            Modelo.Usuario Neos = new Modelo.Usuario();
+            Modelo.Usuario Neos = new Modelo.Usuario(); //creo un usuario vacio y lo lleno con los contenidos en las textboxes
             Neos.Nombre = textBox1.Text;
             Neos.Email = textBox2.Text;
             Neos.Dni = textBox3.Text;
@@ -161,7 +161,7 @@ namespace Vista
             if (respuesta == DialogResult.Yes)
             {
                 Modelo.Usuario seleccionado = dataGridView1.SelectedRows[0].DataBoundItem as Modelo.Usuario;
-                Controladora.Usuario.obtenerInstancia().BorrarUsuario(seleccionado);
+                Controladora.Usuario.obtenerInstancia().BorrarUsuario(seleccionado); 
 
                 List<Modelo.Usuario> listaUsuarios = Controladora.Usuario.obtenerInstancia().ListaUsuarios();
                 dataGridView1.DataSource = listaUsuarios; //refresco la lista

@@ -57,6 +57,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GestionarPerfiles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestionarPerfiles.Designer.cs">
+      <DependentUpon>GestionarPerfiles.cs</DependentUpon>
+    </Compile>
     <Compile Include="GestionarUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,6 +83,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="GestionarPerfiles.resx">
+      <DependentUpon>GestionarPerfiles.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GestionarUsuarios.resx">
       <DependentUpon>GestionarUsuarios.cs</DependentUpon>
     </EmbeddedResource>

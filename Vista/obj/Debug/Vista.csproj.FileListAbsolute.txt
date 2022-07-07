@@ -118,3 +118,4 @@ C:\Users\Navegador\Desktop\Trabajo-POO\Vista\obj\Debug\Vista.csproj.CopyComplete
 C:\Users\Navegador\Desktop\Trabajo-POO\Vista\obj\Debug\Vista.exe
 C:\Users\Navegador\Desktop\Trabajo-POO\Vista\obj\Debug\Vista.pdb
 C:\Users\fturr\Desktop\Trabajo-POO\Vista\obj\Debug\Vista.GestionarUsuarios.resources
+C:\Users\fturr\Desktop\Trabajo-POO\Vista\obj\Debug\Vista.GestionarPerfiles.resources

@@ -50,5 +50,12 @@ namespace Vista
             app.Show();
             this.Hide();
         }
+
+        private void CrearPerfil_Click(object sender, EventArgs e)
+        {
+            GestionarPerfiles app = new GestionarPerfiles();
+            app.Show();
+            this.Hide();
+        }
     }
 }
