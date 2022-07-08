@@ -23,7 +23,6 @@ namespace Vista
 
             if (textBox1 != null)
             {
-
                 if (checkBox1.Checked == true)
                 {
                     formulariosNewUser.Add(Controladora.Formularios.obtenerInstancia().ListarFormularios().Find(item => item.Nombre == "GestionarClientes"));
@@ -37,11 +36,12 @@ namespace Vista
                 Modelo.Perfil perfil = new Modelo.Perfil();
                 perfil.Nombre = textBox1.Text;
                 perfil.Formulario = formulariosNewUser;
-
                 Controladora.Perfiles.obtenerInstancia().AgregarPerfil(perfil);
             }
             MessageBox.Show("Perfil creado con exito");
             textBox1.Clear();
+            checkBox1.Checked = false;
+            checkBox2.Checked = false;
             List<Modelo.Perfil> lista = Controladora.Perfiles.obtenerInstancia().ListarPerfiles();
             dataGridView1.DataSource = lista;
         }

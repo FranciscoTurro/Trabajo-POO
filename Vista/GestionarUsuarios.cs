@@ -157,11 +157,23 @@ namespace Vista
 
         private void button3_Click(object sender, EventArgs e) //eliminar usuario
         {
+            Modelo.Usuario seleccionado = dataGridView1.SelectedRows[0].DataBoundItem as Modelo.Usuario;
+            if (seleccionado.Nombre == Controladora.Usuario.obtenerInstancia().usuarioActual.Nombre)
+            {
+                MessageBox.Show("No es posible borrar el usuario actual.");
+                return;
+            }
+
+            if (seleccionado.Nombre == "admin")
+            {
+                MessageBox.Show("No es posible borrar el admin de la aplicacion.");
+                return;
+            }
+
             DialogResult respuesta = MessageBox.Show("Seguro de querer borrar al usuario? Esta accion es permanente.", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (respuesta == DialogResult.Yes)
             {
-                Modelo.Usuario seleccionado = dataGridView1.SelectedRows[0].DataBoundItem as Modelo.Usuario;
-                Controladora.Usuario.obtenerInstancia().BorrarUsuario(seleccionado); 
+                Controladora.Usuario.obtenerInstancia().BorrarUsuario(seleccionado);
 
                 List<Modelo.Usuario> listaUsuarios = Controladora.Usuario.obtenerInstancia().ListaUsuarios();
                 dataGridView1.DataSource = listaUsuarios; //refresco la lista
