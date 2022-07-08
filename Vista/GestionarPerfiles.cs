@@ -19,14 +19,31 @@ namespace Vista
 
         private void button1_Click(object sender, EventArgs e)
         {
+            List<Modelo.Formulario> formulariosNewUser = new List<Modelo.Formulario>();
+
             if (textBox1 != null)
             {
+
+                if (checkBox1.Checked == true)
+                {
+                    formulariosNewUser.Add(Controladora.Formularios.obtenerInstancia().ListarFormularios().Find(item => item.Nombre == "GestionarClientes"));
+                }
+
+                if (checkBox2.Checked == true)
+                {
+                    formulariosNewUser.Add(Controladora.Formularios.obtenerInstancia().ListarFormularios().Find(item => item.Nombre == "CrearPerfil"));
+                }
+
                 Modelo.Perfil perfil = new Modelo.Perfil();
                 perfil.Nombre = textBox1.Text;
+                perfil.Formulario = formulariosNewUser;
+
                 Controladora.Perfiles.obtenerInstancia().AgregarPerfil(perfil);
             }
             MessageBox.Show("Perfil creado con exito");
             textBox1.Clear();
+            List<Modelo.Perfil> lista = Controladora.Perfiles.obtenerInstancia().ListarPerfiles();
+            dataGridView1.DataSource = lista;
         }
 
         private void button4_Click(object sender, EventArgs e)

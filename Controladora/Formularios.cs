@@ -25,5 +25,10 @@ namespace Controladora
         {
             return usuarioActual.Perfil.Formulario.ToList();
         }
+
+        public List<Modelo.Formulario> ListarFormularios()
+        {
+            return Modelo.SingletonContexto.obtenerInstancia().Contexto.Formularios.ToList();
+        }
     }
 }

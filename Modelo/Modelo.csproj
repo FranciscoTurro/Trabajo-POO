@@ -75,9 +75,6 @@
     <Compile Include="Perfil.cs">
       <DependentUpon>Contexto.tt</DependentUpon>
     </Compile>
-    <Compile Include="Permiso.cs">
-      <DependentUpon>Contexto.tt</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SingletonContexto.cs" />
     <Compile Include="ToStringOverride.cs" />
