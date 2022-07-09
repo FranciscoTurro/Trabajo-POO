@@ -120,8 +120,7 @@ namespace Vista
             Neos.Contraseña = Controladora.Encriptar.GetSHA256(textBox4.Text);
             Neos.Perfil = (Modelo.Perfil)comboBox1.SelectedValue;
 
-
-            if (usuarioactual.Perfil.Nombre == "Empleado")
+            if (usuarioactual.Perfil.Nombre != "Gerente")
             {
                 Neos.Perfil = DarPerfilEmpleado();
             }
