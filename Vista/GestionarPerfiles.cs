@@ -20,8 +20,12 @@ namespace Vista
         private void button1_Click(object sender, EventArgs e)
         {
             List<Modelo.Formulario> formulariosNewUser = new List<Modelo.Formulario>();
-            if (textBox1 != null)
+            if (string.IsNullOrWhiteSpace(textBox1.Text) || NombreUnico() == false)
             {
+                MessageBox.Show("Ingrese un perfil valido");
+                return;
+            }
+            
                 if (checkBox2.Checked == true)
                 {
                     formulariosNewUser.Add(Controladora.Formularios.obtenerInstancia().ListarFormularios().Find(item => item.Nombre == "CrearPerfil"));
@@ -39,12 +43,21 @@ namespace Vista
                 {
                     return;
                 }
-            }
+            
             MessageBox.Show("Perfil creado con exito");
             textBox1.Clear();
             checkBox2.Checked = false;
             List<Modelo.Perfil> lista = Controladora.Perfiles.obtenerInstancia().ListarPerfiles();
             dataGridView1.DataSource = lista;
+        }
+
+        private bool NombreUnico()
+        {
+            Modelo.Perfil x = Controladora.Perfiles.obtenerInstancia().ListarPerfiles().Find(item => item.Nombre == textBox1.Text);
+            if (x != null)
+                return false;
+            else
+                return true;
         }
 
         private void button4_Click(object sender, EventArgs e)
