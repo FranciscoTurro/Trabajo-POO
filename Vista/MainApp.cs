@@ -57,5 +57,12 @@ namespace Vista
             app.Show();
             this.Hide();
         }
+
+        private void Placeholder_Click(object sender, EventArgs e)
+        {
+            ListarUsuarios app = new ListarUsuarios();
+            app.Show();
+            this.Hide();
+        }
     }
 }

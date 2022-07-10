@@ -32,6 +32,7 @@
             this.btnAgregar = new System.Windows.Forms.ToolStripMenuItem();
             this.GestionarClientes = new System.Windows.Forms.ToolStripMenuItem();
             this.CrearPerfil = new System.Windows.Forms.ToolStripMenuItem();
+            this.Placeholder = new System.Windows.Forms.ToolStripMenuItem();
             this.button1 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -50,7 +51,8 @@
             // 
             this.btnAgregar.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.GestionarClientes,
-            this.CrearPerfil});
+            this.CrearPerfil,
+            this.Placeholder});
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(69, 20);
             this.btnAgregar.Text = "Opciones";
@@ -58,7 +60,7 @@
             // GestionarClientes
             // 
             this.GestionarClientes.Name = "GestionarClientes";
-            this.GestionarClientes.Size = new System.Drawing.Size(171, 22);
+            this.GestionarClientes.Size = new System.Drawing.Size(180, 22);
             this.GestionarClientes.Text = "Gestionar usuarios";
             this.GestionarClientes.Visible = false;
             this.GestionarClientes.Click += new System.EventHandler(this.formGestionarUsuarios_Click);
@@ -66,10 +68,17 @@
             // CrearPerfil
             // 
             this.CrearPerfil.Name = "CrearPerfil";
-            this.CrearPerfil.Size = new System.Drawing.Size(171, 22);
+            this.CrearPerfil.Size = new System.Drawing.Size(180, 22);
             this.CrearPerfil.Text = "Crear perfil";
             this.CrearPerfil.Visible = false;
             this.CrearPerfil.Click += new System.EventHandler(this.CrearPerfil_Click);
+            // 
+            // Placeholder
+            // 
+            this.Placeholder.Name = "Placeholder";
+            this.Placeholder.Size = new System.Drawing.Size(180, 22);
+            this.Placeholder.Text = "Listar usuarios";
+            this.Placeholder.Click += new System.EventHandler(this.Placeholder_Click);
             // 
             // button1
             // 
@@ -106,5 +115,6 @@
         private System.Windows.Forms.ToolStripMenuItem GestionarClientes;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ToolStripMenuItem CrearPerfil;
+        private System.Windows.Forms.ToolStripMenuItem Placeholder;
     }
 }

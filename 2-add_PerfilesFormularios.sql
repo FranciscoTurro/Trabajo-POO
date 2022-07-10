@@ -8,6 +8,14 @@ values (
 (SELECT Id FROM Formularios WHERE NombreSistema = 'CrearPerfil')
 ),
 (
+(SELECT Id FROM Perfiles WHERE Nombre = 'Gerente'),
+(SELECT Id FROM Formularios WHERE NombreSistema = 'Placeholder')
+),
+(
 (SELECT Id FROM Perfiles WHERE Nombre = 'Empleado'),
 (SELECT Id FROM Formularios WHERE NombreSistema = 'GestionarClientes')
+),
+(
+(SELECT Id FROM Perfiles WHERE Nombre = 'Empleado'),
+(SELECT Id FROM Formularios WHERE NombreSistema = 'Placeholder')
 )

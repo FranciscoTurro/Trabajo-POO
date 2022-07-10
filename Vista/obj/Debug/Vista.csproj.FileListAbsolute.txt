@@ -144,3 +144,4 @@ C:\Users\fturr\Desktop\Trabajo-POO - Copy\Vista\obj\Debug\Vista.csproj.CoreCompi
 C:\Users\fturr\Desktop\Trabajo-POO - Copy\Vista\obj\Debug\Vista.csproj.CopyComplete
 C:\Users\fturr\Desktop\Trabajo-POO - Copy\Vista\obj\Debug\Vista.exe
 C:\Users\fturr\Desktop\Trabajo-POO - Copy\Vista\obj\Debug\Vista.pdb
+C:\Users\fturr\Desktop\Trabajo-POO - Copy\Vista\obj\Debug\Vista.ListarUsuarios.resources
