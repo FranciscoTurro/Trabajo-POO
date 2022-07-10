@@ -21,9 +21,9 @@ namespace Controladora
             return instancia;
         }
 
-        public List<Modelo.Formulario> ListaFormularios(Modelo.Usuario usuarioActual)
+        public List<Modelo.Formulario> ListaFormularios(Modelo.Usuario usuario)
         {
-            return usuarioActual.Perfil.Formulario.ToList();
+            return usuario.Perfil.Formulario.ToList();
         }
 
         public List<Modelo.Formulario> ListarFormularios()

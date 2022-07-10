@@ -21,23 +21,33 @@ namespace Vista
 
         private void GestionarUsuarios_Load(object sender, EventArgs e)
         {
+            comboBox1.Hide();
+            label5.Hide();
+            button3.Hide();
+
             List<Modelo.Usuario> listaUsuarios = Controladora.Usuario.obtenerInstancia().ListaUsuarios();
             dataGridView1.DataSource = listaUsuarios; //cargo el datagridview con la lista de todos los usuarios en la base de datos
 
             textBox3.MaxLength = 8; //se pueden ingresar solo 8 numeros como dni
 
-            Modelo.Usuario usuarioactual = Controladora.Usuario.obtenerInstancia().usuarioActual;
-            if (usuarioactual.Perfil.Nombre != "Gerente")  //si el usuario actual no es un gerente escondo la posibilidad de cambiar perfiles 
-            {
-                comboBox1.Hide();
-                label5.Hide();
-                button3.Hide();
-            }
-            else
-            {
-                comboBox1.DataSource = Controladora.Perfiles.obtenerInstancia().ListarPerfiles();
 
-            }
+
+            Modelo.Usuario usuarioactual = Controladora.Usuario.obtenerInstancia().usuarioActual;
+            List<Modelo.Formulario> listaFormularios = Controladora.Formularios.obtenerInstancia().ListaFormularios(usuarioactual);
+            listaFormularios.ForEach(formulario =>
+            {
+                List<Modelo.Permiso> listaPermisos = Controladora.Permisos.obtenerInstancia().ListarPermisos(formulario);
+                listaPermisos.ForEach(permiso =>
+                {
+                    if (permiso.NombreSistema == "Eliminar")
+                    {
+                        comboBox1.DataSource = Controladora.Perfiles.obtenerInstancia().ListarPerfiles();
+                        comboBox1.Show();
+                        label5.Show();
+                        button3.Show();
+                    }
+                });
+            });
         }
 
         private bool NombreUnico()
@@ -90,10 +100,21 @@ namespace Vista
             if (!string.IsNullOrWhiteSpace(textBox2.Text) && CheckEmail() == true) { seleccionado.Email = textBox2.Text; }
             if (!string.IsNullOrWhiteSpace(textBox3.Text) && LongitudDNI() == true) { seleccionado.Dni = textBox3.Text; }
             if (!string.IsNullOrWhiteSpace(textBox4.Text)) { seleccionado.Contraseña = Controladora.Encriptar.GetSHA256(textBox4.Text); }
-            if (usuarioactual.Perfil.Nombre == "Gerente")
+
+            List<Modelo.Formulario> listaFormularios = Controladora.Formularios.obtenerInstancia().ListaFormularios(usuarioactual);
+            listaFormularios.ForEach(formulario =>
             {
-                seleccionado.Perfil = (Modelo.Perfil)comboBox1.SelectedValue;
-            }
+                List<Modelo.Permiso> listaPermisos = Controladora.Permisos.obtenerInstancia().ListarPermisos(formulario);
+                listaPermisos.ForEach(permiso =>
+                {
+                    if (permiso.NombreSistema == "Eliminar")
+                    {
+                        seleccionado.Perfil = (Modelo.Perfil)comboBox1.SelectedValue;
+                    }
+                });
+            });
+
+
             Modelo.SingletonContexto.obtenerInstancia().Contexto.SaveChanges();
 
             List<Modelo.Usuario> listaUsuarios = Controladora.Usuario.obtenerInstancia().ListaUsuarios();
@@ -118,12 +139,20 @@ namespace Vista
             Neos.Email = textBox2.Text;
             Neos.Dni = textBox3.Text;
             Neos.Contraseña = Controladora.Encriptar.GetSHA256(textBox4.Text);
-            Neos.Perfil = (Modelo.Perfil)comboBox1.SelectedValue;
+            Neos.Perfil = DarPerfilEmpleado();
 
-            if (usuarioactual.Perfil.Nombre != "Gerente")
+            List<Modelo.Formulario> listaFormularios = Controladora.Formularios.obtenerInstancia().ListaFormularios(usuarioactual);
+            listaFormularios.ForEach(formulario =>
             {
-                Neos.Perfil = DarPerfilEmpleado();
-            }
+                List<Modelo.Permiso> listaPermisos = Controladora.Permisos.obtenerInstancia().ListarPermisos(formulario);
+                listaPermisos.ForEach(permiso =>
+                {
+                    if (permiso.NombreSistema == "Eliminar")
+                    {
+                        Neos.Perfil = (Modelo.Perfil)comboBox1.SelectedValue;
+                    }
+                });
+            });
 
             if (CamposCompletos() == false)
             {
@@ -165,7 +194,7 @@ namespace Vista
 
             if (seleccionado.Nombre == "admin")
             {
-                MessageBox.Show("No es posible borrar el admin de la aplicacion.");
+                MessageBox.Show("Este usuario esta protegido.");
                 return;
             }
 

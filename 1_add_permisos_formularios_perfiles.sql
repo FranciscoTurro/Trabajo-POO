@@ -1,7 +1,6 @@
 -- Agregar Permisos
---insert into Permisos values ('Agregar', 'btnAgregar')
---insert into Permisos values ('Eliminar', 'btnEliminar')
---insert into Permisos values ('Modificar', 'btnModificar')
+insert into Permisos values ('Modificar', 'Modificar')
+insert into Permisos values ('Eliminar', 'Eliminar')
  
 -- Agregar Formularios
  insert into Formularios values ('GestionarClientes', 'GestionarClientes')

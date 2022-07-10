@@ -20,7 +20,6 @@ namespace Vista
         private void button1_Click(object sender, EventArgs e)
         {
             List<Modelo.Formulario> formulariosNewUser = new List<Modelo.Formulario>();
-
             if (textBox1 != null)
             {
                 if (checkBox1.Checked == true)

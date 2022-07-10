@@ -29,6 +29,15 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Permisos">
+      <EntityTypeMapping TypeName="IsTypeOf(Contexto.Permiso)">
+        <MappingFragment StoreEntitySet="Permisos">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="NombreSistema" ColumnName="NombreSistema" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <AssociationSetMapping Name="UsuarioPerfil" TypeName="Contexto.UsuarioPerfil" StoreEntitySet="Usuarios">
       <EndProperty Name="Perfil">
         <ScalarProperty Name="Id" ColumnName="Perfil_Id" />
@@ -43,6 +52,14 @@
       </EndProperty>
       <EndProperty Name="Formulario">
         <ScalarProperty Name="Id" ColumnName="Formulario_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FormularioPermiso" TypeName="Contexto.FormularioPermiso" StoreEntitySet="FormularioPermiso">
+      <EndProperty Name="Formulario">
+        <ScalarProperty Name="Id" ColumnName="Formulario_Id" />
+      </EndProperty>
+      <EndProperty Name="Permiso">
+        <ScalarProperty Name="Id" ColumnName="Permiso_Id" />
       </EndProperty>
     </AssociationSetMapping>
   </EntityContainerMapping>

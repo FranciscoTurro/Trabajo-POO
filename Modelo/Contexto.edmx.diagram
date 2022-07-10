@@ -10,6 +10,8 @@
         <EntityTypeShape EntityType="Contexto.Formulario" Width="1.5" PointX="6.75" PointY="5.25" />
         <AssociationConnector Association="Contexto.UsuarioPerfil" />
         <AssociationConnector Association="Contexto.PerfilFormulario" />
+        <EntityTypeShape EntityType="Contexto.Permiso" Width="1.5" PointX="4.25" PointY="5.125" />
+        <AssociationConnector Association="Contexto.FormularioPermiso" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

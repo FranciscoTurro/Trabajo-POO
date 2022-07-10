@@ -58,3 +58,15 @@ C:\Users\Navegador\Desktop\Trabajo-POO\Modelo\obj\Debug\Modelo.csproj.CoreCompil
 C:\Users\Navegador\Desktop\Trabajo-POO\Modelo\obj\Debug\Modelo.csproj.CopyComplete
 C:\Users\Navegador\Desktop\Trabajo-POO\Modelo\obj\Debug\Modelo.dll
 C:\Users\Navegador\Desktop\Trabajo-POO\Modelo\obj\Debug\Modelo.pdb
+C:\Users\fturr\Desktop\Trabajo-POO - Copy\Modelo\bin\Debug\Modelo.dll.config
+C:\Users\fturr\Desktop\Trabajo-POO - Copy\Modelo\bin\Debug\Modelo.dll
+C:\Users\fturr\Desktop\Trabajo-POO - Copy\Modelo\bin\Debug\Modelo.pdb
+C:\Users\fturr\Desktop\Trabajo-POO - Copy\Modelo\bin\Debug\EntityFramework.dll
+C:\Users\fturr\Desktop\Trabajo-POO - Copy\Modelo\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\fturr\Desktop\Trabajo-POO - Copy\Modelo\bin\Debug\EntityFramework.xml
+C:\Users\fturr\Desktop\Trabajo-POO - Copy\Modelo\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\fturr\Desktop\Trabajo-POO - Copy\Modelo\obj\Debug\Modelo.csproj.AssemblyReference.cache
+C:\Users\fturr\Desktop\Trabajo-POO - Copy\Modelo\obj\Debug\Modelo.csproj.CoreCompileInputs.cache
+C:\Users\fturr\Desktop\Trabajo-POO - Copy\Modelo\obj\Debug\Modelo.csproj.CopyComplete
+C:\Users\fturr\Desktop\Trabajo-POO - Copy\Modelo\obj\Debug\Modelo.dll
+C:\Users\fturr\Desktop\Trabajo-POO - Copy\Modelo\obj\Debug\Modelo.pdb

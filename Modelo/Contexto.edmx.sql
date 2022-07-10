@@ -2,13 +2,13 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 07/07/2022 16:01:28
--- Generated from EDMX file: C:\Users\fturr\Desktop\Trabajo-POO\Modelo\Contexto.edmx
+-- Date Created: 07/10/2022 11:43:35
+-- Generated from EDMX file: C:\Users\fturr\Desktop\Trabajo-POO - Copy\Modelo\Contexto.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
 GO
-USE [testPOOTP];
+USE [tempDB1];
 GO
 IF SCHEMA_ID(N'dbo') IS NULL EXECUTE(N'CREATE SCHEMA [dbo]');
 GO
@@ -74,10 +74,25 @@ CREATE TABLE [dbo].[Formularios] (
 );
 GO
 
+-- Creating table 'Permisos'
+CREATE TABLE [dbo].[Permisos] (
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [Nombre] nvarchar(max)  NOT NULL,
+    [NombreSistema] nvarchar(max)  NOT NULL
+);
+GO
+
 -- Creating table 'PerfilFormulario'
 CREATE TABLE [dbo].[PerfilFormulario] (
     [Perfil_Id] int  NOT NULL,
     [Formulario_Id] int  NOT NULL
+);
+GO
+
+-- Creating table 'FormularioPermiso'
+CREATE TABLE [dbo].[FormularioPermiso] (
+    [Formulario_Id] int  NOT NULL,
+    [Permiso_Id] int  NOT NULL
 );
 GO
 
@@ -103,10 +118,22 @@ ADD CONSTRAINT [PK_Formularios]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
+-- Creating primary key on [Id] in table 'Permisos'
+ALTER TABLE [dbo].[Permisos]
+ADD CONSTRAINT [PK_Permisos]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
+GO
+
 -- Creating primary key on [Perfil_Id], [Formulario_Id] in table 'PerfilFormulario'
 ALTER TABLE [dbo].[PerfilFormulario]
 ADD CONSTRAINT [PK_PerfilFormulario]
     PRIMARY KEY CLUSTERED ([Perfil_Id], [Formulario_Id] ASC);
+GO
+
+-- Creating primary key on [Formulario_Id], [Permiso_Id] in table 'FormularioPermiso'
+ALTER TABLE [dbo].[FormularioPermiso]
+ADD CONSTRAINT [PK_FormularioPermiso]
+    PRIMARY KEY CLUSTERED ([Formulario_Id], [Permiso_Id] ASC);
 GO
 
 -- --------------------------------------------------
@@ -150,6 +177,30 @@ GO
 CREATE INDEX [IX_FK_PerfilFormulario_Formulario]
 ON [dbo].[PerfilFormulario]
     ([Formulario_Id]);
+GO
+
+-- Creating foreign key on [Formulario_Id] in table 'FormularioPermiso'
+ALTER TABLE [dbo].[FormularioPermiso]
+ADD CONSTRAINT [FK_FormularioPermiso_Formulario]
+    FOREIGN KEY ([Formulario_Id])
+    REFERENCES [dbo].[Formularios]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating foreign key on [Permiso_Id] in table 'FormularioPermiso'
+ALTER TABLE [dbo].[FormularioPermiso]
+ADD CONSTRAINT [FK_FormularioPermiso_Permiso]
+    FOREIGN KEY ([Permiso_Id])
+    REFERENCES [dbo].[Permisos]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_FormularioPermiso_Permiso'
+CREATE INDEX [IX_FK_FormularioPermiso_Permiso]
+ON [dbo].[FormularioPermiso]
+    ([Permiso_Id]);
 GO
 
 -- --------------------------------------------------
