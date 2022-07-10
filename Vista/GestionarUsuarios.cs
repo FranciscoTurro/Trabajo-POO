@@ -95,6 +95,11 @@ namespace Vista
         {
             Modelo.Usuario usuarioactual = Controladora.Usuario.obtenerInstancia().usuarioActual;
             Modelo.Usuario seleccionado = dataGridView1.SelectedRows[0].DataBoundItem as Modelo.Usuario;
+            if (usuarioactual == seleccionado)
+            {
+                MessageBox.Show("No es posible editar el usuario actual.");
+                return;
+            }
 //si el textbox NO esta vacio se reemplaza el atributo correspondiente del usuario seleccionado
             if (!string.IsNullOrWhiteSpace(textBox1.Text) && NombreUnico() == true) { seleccionado.Nombre = textBox1.Text; }
             if (!string.IsNullOrWhiteSpace(textBox2.Text) && CheckEmail() == true) { seleccionado.Email = textBox2.Text; }
