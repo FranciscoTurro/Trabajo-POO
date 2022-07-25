@@ -50,42 +50,6 @@ namespace Vista
             });
         }
 
-        private bool NombreUnico()
-        {
-            Modelo.Usuario x = Controladora.Usuario.obtenerInstancia().ListaUsuarios().Find(usuario => usuario.Nombre == textBox1.Text);
-            if (x != null)
-                return false;
-            else
-                return true;
-        }
-
-        private bool CheckEmail()
-        {
-            string email = textBox2.Text;
-            Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
-            Match match = regex.Match(email);
-            if (match.Success)
-                return true;
-            else
-                return false;
-        }
-
-        private bool LongitudDNI()
-        {
-            if (textBox3.TextLength != 8)
-                return false;
-            else
-                return true;
-        }
-
-        private bool CamposCompletos()
-        {
-            if (string.IsNullOrWhiteSpace(textBox1.Text) && string.IsNullOrWhiteSpace(textBox2.Text) && LongitudDNI() == false) //checkea que todos los campos esten completos, excepto la contraseña, que puede ser vacia
-                return false;
-            else
-                return true;
-        }
-
         private Modelo.Perfil DarPerfilEmpleado()
         {
             return Controladora.Perfiles.obtenerInstancia().ListarPerfiles().Find(item => item.Nombre == "Empleado");
@@ -101,10 +65,10 @@ namespace Vista
                 return;
             }
 //si el textbox NO esta vacio se reemplaza el atributo correspondiente del usuario seleccionado
-            if (!string.IsNullOrWhiteSpace(textBox1.Text) && NombreUnico() == true) { seleccionado.Nombre = textBox1.Text; }
-            if (!string.IsNullOrWhiteSpace(textBox2.Text) && CheckEmail() == true) { seleccionado.Email = textBox2.Text; }
-            if (!string.IsNullOrWhiteSpace(textBox3.Text) && LongitudDNI() == true) { seleccionado.Dni = textBox3.Text; }
-            if (!string.IsNullOrWhiteSpace(textBox4.Text)) { seleccionado.Contraseña = Controladora.Encriptar.GetSHA256(textBox4.Text); }
+            if (!string.IsNullOrWhiteSpace(textBox1.Text) && Controladora.Validaciones.NombreUnico(textBox1.Text) == true) { seleccionado.Nombre = textBox1.Text; }
+            if (!string.IsNullOrWhiteSpace(textBox2.Text) && Controladora.Validaciones.CheckEmail(textBox2.Text) == true) { seleccionado.Email = textBox2.Text; }
+            if (!string.IsNullOrWhiteSpace(textBox3.Text) && Controladora.Validaciones.LongitudDNI(textBox3.TextLength) == true) { seleccionado.Dni = textBox3.Text; }
+            if (!string.IsNullOrWhiteSpace(textBox4.Text)) { seleccionado.Contraseña = Controladora.Validaciones.GetSHA256(textBox4.Text); }
 
             List<Modelo.Formulario> listaFormularios = Controladora.Formularios.obtenerInstancia().ListaFormularios(usuarioactual);
             listaFormularios.ForEach(formulario =>
@@ -143,7 +107,7 @@ namespace Vista
             Neos.Nombre = textBox1.Text;
             Neos.Email = textBox2.Text;
             Neos.Dni = textBox3.Text;
-            Neos.Contraseña = Controladora.Encriptar.GetSHA256(textBox4.Text);
+            Neos.Contraseña = Controladora.Validaciones.GetSHA256(textBox4.Text);
             Neos.Perfil = DarPerfilEmpleado();
 
             List<Modelo.Formulario> listaFormularios = Controladora.Formularios.obtenerInstancia().ListaFormularios(usuarioactual);
@@ -159,23 +123,20 @@ namespace Vista
                 });
             });
 
-            if (CamposCompletos() == false)
+           
+            if (Controladora.Validaciones.NombreUnico(textBox1.Text) == false)  //funciones validan que el email y el nombre sean correctos, devuelven un mensaje de error y no permiten la creacion si se ingresan incorrectamente
             {
-                MessageBox.Show("Falta completar campos");
+                MessageBox.Show("Nombre de usuario no valido");
             }
-            if (NombreUnico() == false)  //funciones validan que el email y el nombre sean correctos, devuelven un mensaje de error y no permiten la creacion si se ingresan incorrectamente
-            {
-                MessageBox.Show("Usuario ya existente");
-            }
-            if (CheckEmail() == false)
+            if (Controladora.Validaciones.CheckEmail(textBox2.Text) == false)
             {
                 MessageBox.Show("El email ingresado no es valido");
             }
-            if (LongitudDNI() == false)
+            if (Controladora.Validaciones.LongitudDNI(textBox3.TextLength) == false)
             {
                 MessageBox.Show("El DNI ingresado no es valido");
             }
-            if (CheckEmail() == true && NombreUnico() == true && CamposCompletos() == true && LongitudDNI() == true)
+            if (Controladora.Validaciones.CheckEmail(textBox2.Text) == true && Controladora.Validaciones.NombreUnico(textBox1.Text) == true &&  Controladora.Validaciones.LongitudDNI(textBox3.TextLength) == true)
             {
                 Controladora.Usuario.obtenerInstancia().AgregarUsuario(Neos);
                 MessageBox.Show("Usuario creado con exito"); //avisa que se creo un usuario y limpia las text boxes
