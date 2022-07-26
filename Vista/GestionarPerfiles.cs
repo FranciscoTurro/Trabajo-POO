@@ -20,7 +20,7 @@ namespace Vista
         private void button1_Click(object sender, EventArgs e)
         {
             List<Modelo.Formulario> formulariosNewUser = new List<Modelo.Formulario>();
-            if (string.IsNullOrWhiteSpace(textBox1.Text) || Controladora.Validaciones.NombreUnico(textBox1.Text) == false)
+            if (string.IsNullOrWhiteSpace(textBox1.Text) || Controladora.Validaciones.NombreUnicoUser(textBox1.Text) == false)
             {
                 MessageBox.Show("Ingrese un nombre de perfil valido");
                 return;

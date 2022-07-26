@@ -91,7 +91,7 @@ namespace Vista
                 return;
             }
             //si el textbox NO esta vacio se reemplaza el atributo correspondiente del usuario seleccionado
-            if (!string.IsNullOrWhiteSpace(textBox1.Text) && Controladora.Validaciones.NombreUnico(textBox1.Text) == true) { seleccionado.Nombre = textBox1.Text; } 
+            if (!string.IsNullOrWhiteSpace(textBox1.Text) && Controladora.Validaciones.NombreUnicoUser(textBox1.Text) == true) { seleccionado.Nombre = textBox1.Text; } 
             if (!string.IsNullOrWhiteSpace(textBox2.Text) && Controladora.Validaciones.CheckEmail(textBox2.Text) == true) { seleccionado.Email = textBox2.Text; }
             if (!string.IsNullOrWhiteSpace(textBox3.Text) && Controladora.Validaciones.LongitudDNI(textBox3.TextLength) == true) { seleccionado.Dni = textBox3.Text; }
             if (!string.IsNullOrWhiteSpace(textBox4.Text)) { seleccionado.Contraseña = Controladora.Validaciones.GetSHA256(textBox4.Text); }
@@ -136,7 +136,7 @@ namespace Vista
             }
 
 
-            if (Controladora.Validaciones.NombreUnico(textBox1.Text) == false)  //funciones validan que el email y el nombre sean correctos, devuelven un mensaje de error y no permiten la creacion si se ingresan incorrectamente
+            if (Controladora.Validaciones.NombreUnicoUser(textBox1.Text) == false)  //funciones validan que el email y el nombre sean correctos, devuelven un mensaje de error y no permiten la creacion si se ingresan incorrectamente
             {
                 MessageBox.Show("Nombre de usuario no valido");
             }
@@ -148,7 +148,7 @@ namespace Vista
             {
                 MessageBox.Show("El DNI ingresado no es valido");
             }
-            if (Controladora.Validaciones.CheckEmail(textBox2.Text) == true && Controladora.Validaciones.NombreUnico(textBox1.Text) == true &&  Controladora.Validaciones.LongitudDNI(textBox3.TextLength) == true)
+            if (Controladora.Validaciones.CheckEmail(textBox2.Text) == true && Controladora.Validaciones.NombreUnicoUser(textBox1.Text) == true &&  Controladora.Validaciones.LongitudDNI(textBox3.TextLength) == true)
             {
                 Controladora.Usuario.obtenerInstancia().AgregarUsuario(Neos);
                 MessageBox.Show("Usuario creado con exito"); //avisa que se creo un usuario y limpia las text boxes

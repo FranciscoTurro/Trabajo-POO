@@ -69,11 +69,11 @@
     <Compile Include="GestionarUsuarios.Designer.cs">
       <DependentUpon>GestionarUsuarios.cs</DependentUpon>
     </Compile>
-    <Compile Include="ListarUsuarios.cs">
+    <Compile Include="GestionarProductos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ListarUsuarios.Designer.cs">
-      <DependentUpon>ListarUsuarios.cs</DependentUpon>
+    <Compile Include="GestionarProductos.Designer.cs">
+      <DependentUpon>GestionarProductos.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -95,8 +95,8 @@
     <EmbeddedResource Include="GestionarUsuarios.resx">
       <DependentUpon>GestionarUsuarios.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ListarUsuarios.resx">
-      <DependentUpon>ListarUsuarios.cs</DependentUpon>
+    <EmbeddedResource Include="GestionarProductos.resx">
+      <DependentUpon>GestionarProductos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

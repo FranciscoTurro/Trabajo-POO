@@ -60,7 +60,7 @@
             // GestionarClientes
             // 
             this.GestionarClientes.Name = "GestionarClientes";
-            this.GestionarClientes.Size = new System.Drawing.Size(180, 22);
+            this.GestionarClientes.Size = new System.Drawing.Size(181, 22);
             this.GestionarClientes.Text = "Gestionar usuarios";
             this.GestionarClientes.Visible = false;
             this.GestionarClientes.Click += new System.EventHandler(this.formGestionarUsuarios_Click);
@@ -68,7 +68,7 @@
             // CrearPerfil
             // 
             this.CrearPerfil.Name = "CrearPerfil";
-            this.CrearPerfil.Size = new System.Drawing.Size(180, 22);
+            this.CrearPerfil.Size = new System.Drawing.Size(181, 22);
             this.CrearPerfil.Text = "Crear perfil";
             this.CrearPerfil.Visible = false;
             this.CrearPerfil.Click += new System.EventHandler(this.CrearPerfil_Click);
@@ -76,8 +76,8 @@
             // Placeholder
             // 
             this.Placeholder.Name = "Placeholder";
-            this.Placeholder.Size = new System.Drawing.Size(180, 22);
-            this.Placeholder.Text = "Listar usuarios";
+            this.Placeholder.Size = new System.Drawing.Size(181, 22);
+            this.Placeholder.Text = "Gestionar Productos";
             this.Placeholder.Click += new System.EventHandler(this.Placeholder_Click);
             // 
             // button1
@@ -99,7 +99,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainApp";
-            this.Text = "MainApp";
+            this.Text = "Aplicación";
             this.Load += new System.EventHandler(this.MainApp_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

@@ -60,7 +60,7 @@ namespace Vista
 
         private void Placeholder_Click(object sender, EventArgs e)
         {
-            ListarUsuarios app = new ListarUsuarios();
+            GestionarProductos app = new GestionarProductos();
             app.Show();
             this.Hide();
         }

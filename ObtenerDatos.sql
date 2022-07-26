@@ -6,6 +6,8 @@ select * from Formularios
 go
 select * from Permisos
 go
+select * from Productos
+go
 
 select 
 	FormularioPermiso.Formulario_Id,

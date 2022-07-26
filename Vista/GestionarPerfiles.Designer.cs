@@ -104,7 +104,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox1);
             this.Name = "GestionarPerfiles";
-            this.Text = "CrearPerfil";
+            this.Text = "Crear Perfil";
             this.Load += new System.EventHandler(this.GestionarPerfiles_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

@@ -2,13 +2,13 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 07/10/2022 11:43:35
--- Generated from EDMX file: C:\Users\fturr\Desktop\Trabajo-POO - Copy\Modelo\Contexto.edmx
+-- Date Created: 07/26/2022 16:33:33
+-- Generated from EDMX file: C:\Users\fturr\Desktop\Trabajo-POO\Modelo\Contexto.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
 GO
-USE [tempDB1];
+USE [DBUSETP1];
 GO
 IF SCHEMA_ID(N'dbo') IS NULL EXECUTE(N'CREATE SCHEMA [dbo]');
 GO
@@ -26,6 +26,12 @@ GO
 IF OBJECT_ID(N'[dbo].[FK_PerfilFormulario_Formulario]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[PerfilFormulario] DROP CONSTRAINT [FK_PerfilFormulario_Formulario];
 GO
+IF OBJECT_ID(N'[dbo].[FK_FormularioPermiso_Formulario]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[FormularioPermiso] DROP CONSTRAINT [FK_FormularioPermiso_Formulario];
+GO
+IF OBJECT_ID(N'[dbo].[FK_FormularioPermiso_Permiso]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[FormularioPermiso] DROP CONSTRAINT [FK_FormularioPermiso_Permiso];
+GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
@@ -40,8 +46,14 @@ GO
 IF OBJECT_ID(N'[dbo].[Formularios]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Formularios];
 GO
+IF OBJECT_ID(N'[dbo].[Permisos]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Permisos];
+GO
 IF OBJECT_ID(N'[dbo].[PerfilFormulario]', 'U') IS NOT NULL
     DROP TABLE [dbo].[PerfilFormulario];
+GO
+IF OBJECT_ID(N'[dbo].[FormularioPermiso]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[FormularioPermiso];
 GO
 
 -- --------------------------------------------------
@@ -79,6 +91,16 @@ CREATE TABLE [dbo].[Permisos] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [Nombre] nvarchar(max)  NOT NULL,
     [NombreSistema] nvarchar(max)  NOT NULL
+);
+GO
+
+-- Creating table 'Productos'
+CREATE TABLE [dbo].[Productos] (
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [Nombre] nvarchar(max)  NOT NULL,
+    [Stock] nvarchar(max)  NOT NULL,
+    [Descripcion] nvarchar(max)  NOT NULL,
+    [Precio] nvarchar(max)  NOT NULL
 );
 GO
 
@@ -121,6 +143,12 @@ GO
 -- Creating primary key on [Id] in table 'Permisos'
 ALTER TABLE [dbo].[Permisos]
 ADD CONSTRAINT [PK_Permisos]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
+GO
+
+-- Creating primary key on [Id] in table 'Productos'
+ALTER TABLE [dbo].[Productos]
+ADD CONSTRAINT [PK_Productos]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 

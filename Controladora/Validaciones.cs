@@ -23,11 +23,11 @@ namespace Controladora
             return sb.ToString();
         }
 
-        public static bool NombreUnico(string name)
+        public static bool NombreUnicoUser(string name)
         {
             if (String.IsNullOrEmpty(name) == false)
             {
-                Modelo.Usuario x = Controladora.Usuario.obtenerInstancia().ListaUsuarios().Find(usuario => usuario.Nombre == name);
+                Modelo.Usuario x = Usuario.obtenerInstancia().ListaUsuarios().Find(usuario => usuario.Nombre == name);
                 if (x != null)
                     return false;
                 else

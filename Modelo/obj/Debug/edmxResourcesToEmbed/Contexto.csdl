@@ -17,6 +17,7 @@
       <End Role="Formulario" EntitySet="Formularios" />
       <End Role="Permiso" EntitySet="Permisos" />
     </AssociationSet>
+    <EntitySet Name="Productos" EntityType="Contexto.Producto" />
   </EntityContainer>
   <EntityType Name="Usuario">
     <Key>
@@ -69,4 +70,14 @@
     <End Type="Contexto.Formulario" Role="Formulario" Multiplicity="*" />
     <End Type="Contexto.Permiso" Role="Permiso" Multiplicity="*" />
   </Association>
+  <EntityType Name="Producto">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" />
+    <Property Name="Stock" Type="String" Nullable="false" />
+    <Property Name="Descripcion" Type="String" Nullable="false" />
+    <Property Name="Precio" Type="String" Nullable="false" />
+  </EntityType>
 </Schema>
