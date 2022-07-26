@@ -66,9 +66,9 @@ namespace Vista
         {
             Modelo.Usuario usuarioactual = Controladora.Usuario.obtenerInstancia().usuarioActual;
             Modelo.Usuario seleccionado = dataGridView1.SelectedRows[0].DataBoundItem as Modelo.Usuario;
-            if (usuarioactual == seleccionado)
+            if (usuarioactual == seleccionado ^ seleccionado.Nombre == "admin")
             {
-                MessageBox.Show("No es posible editar el usuario actual.");
+                MessageBox.Show("No es posible editar este usuario.");
                 return;
             }
 
@@ -85,13 +85,13 @@ namespace Vista
                 });
             });
 
-            if (permisoVerificar == false && permisoVerificar2 == true) //si el usuario no tiene permisos avanzados no puede editar un perfil que si los tenga
+            if (permisoVerificar == false & permisoVerificar2 == true) //si el usuario no tiene permisos avanzados no puede editar un perfil que si los tenga
             {
                 MessageBox.Show("No es posible editar el perfil de este usuario");
                 return;
             }
             //si el textbox NO esta vacio se reemplaza el atributo correspondiente del usuario seleccionado
-            if (!string.IsNullOrWhiteSpace(textBox1.Text) && Controladora.Validaciones.NombreUnico(textBox1.Text) == true) { seleccionado.Nombre = textBox1.Text; }
+            if (!string.IsNullOrWhiteSpace(textBox1.Text) && Controladora.Validaciones.NombreUnico(textBox1.Text) == true) { seleccionado.Nombre = textBox1.Text; } 
             if (!string.IsNullOrWhiteSpace(textBox2.Text) && Controladora.Validaciones.CheckEmail(textBox2.Text) == true) { seleccionado.Email = textBox2.Text; }
             if (!string.IsNullOrWhiteSpace(textBox3.Text) && Controladora.Validaciones.LongitudDNI(textBox3.TextLength) == true) { seleccionado.Dni = textBox3.Text; }
             if (!string.IsNullOrWhiteSpace(textBox4.Text)) { seleccionado.Contraseña = Controladora.Validaciones.GetSHA256(textBox4.Text); }
