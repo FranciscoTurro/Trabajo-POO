@@ -14,6 +14,9 @@ namespace Vista
 {
     public partial class GestionarUsuarios : Form
     {
+        bool permisoVerificar = false; //IMPORTANTE, variable que se convierte en true cuando el usuario tiene permisos avanzados
+        bool permisoVerificar2 = false;
+
         public GestionarUsuarios()
         {
             InitializeComponent();
@@ -31,7 +34,6 @@ namespace Vista
             textBox3.MaxLength = 8; //se pueden ingresar solo 8 numeros como dni
 
 
-
             Modelo.Usuario usuarioactual = Controladora.Usuario.obtenerInstancia().usuarioActual;
             List<Modelo.Formulario> listaFormularios = Controladora.Formularios.obtenerInstancia().ListaFormularios(usuarioactual);
             listaFormularios.ForEach(formulario =>
@@ -39,15 +41,20 @@ namespace Vista
                 List<Modelo.Permiso> listaPermisos = Controladora.Permisos.obtenerInstancia().ListarPermisos(formulario);
                 listaPermisos.ForEach(permiso =>
                 {
-                    if (permiso.NombreSistema == "Eliminar")
+                    if (permiso.NombreSistema == "Eliminar") //checkea que el usuario actual tenga permisos avanzados
                     {
-                        comboBox1.DataSource = Controladora.Perfiles.obtenerInstancia().ListarPerfiles();
-                        comboBox1.Show();
-                        label5.Show();
-                        button3.Show();
+                        permisoVerificar = true;
                     }
                 });
             });
+
+            if (permisoVerificar == true)
+            {
+                comboBox1.DataSource = Controladora.Perfiles.obtenerInstancia().ListarPerfiles();
+                comboBox1.Show();
+                label5.Show();
+                button3.Show();
+            }
         }
 
         private Modelo.Perfil DarPerfilEmpleado()
@@ -64,24 +71,37 @@ namespace Vista
                 MessageBox.Show("No es posible editar el usuario actual.");
                 return;
             }
-//si el textbox NO esta vacio se reemplaza el atributo correspondiente del usuario seleccionado
-            if (!string.IsNullOrWhiteSpace(textBox1.Text) && Controladora.Validaciones.NombreUnico(textBox1.Text) == true) { seleccionado.Nombre = textBox1.Text; }
-            if (!string.IsNullOrWhiteSpace(textBox2.Text) && Controladora.Validaciones.CheckEmail(textBox2.Text) == true) { seleccionado.Email = textBox2.Text; }
-            if (!string.IsNullOrWhiteSpace(textBox3.Text) && Controladora.Validaciones.LongitudDNI(textBox3.TextLength) == true) { seleccionado.Dni = textBox3.Text; }
-            if (!string.IsNullOrWhiteSpace(textBox4.Text)) { seleccionado.Contraseña = Controladora.Validaciones.GetSHA256(textBox4.Text); }
 
-            List<Modelo.Formulario> listaFormularios = Controladora.Formularios.obtenerInstancia().ListaFormularios(usuarioactual);
+            List<Modelo.Formulario> listaFormularios = Controladora.Formularios.obtenerInstancia().ListaFormularios(seleccionado);
             listaFormularios.ForEach(formulario =>
             {
                 List<Modelo.Permiso> listaPermisos = Controladora.Permisos.obtenerInstancia().ListarPermisos(formulario);
                 listaPermisos.ForEach(permiso =>
                 {
-                    if (permiso.NombreSistema == "Eliminar")
+                    if (permiso.NombreSistema == "Eliminar") //checkea que el usuario seleccionado tenga permisos avanzados
                     {
-                        seleccionado.Perfil = (Modelo.Perfil)comboBox1.SelectedValue;
+                        permisoVerificar2 = true;
                     }
                 });
             });
+
+            if (permisoVerificar == false && permisoVerificar2 == true) //si el usuario no tiene permisos avanzados no puede editar un perfil que si los tenga
+            {
+                MessageBox.Show("No es posible editar el perfil de este usuario");
+                return;
+            }
+            //si el textbox NO esta vacio se reemplaza el atributo correspondiente del usuario seleccionado
+            if (!string.IsNullOrWhiteSpace(textBox1.Text) && Controladora.Validaciones.NombreUnico(textBox1.Text) == true) { seleccionado.Nombre = textBox1.Text; }
+            if (!string.IsNullOrWhiteSpace(textBox2.Text) && Controladora.Validaciones.CheckEmail(textBox2.Text) == true) { seleccionado.Email = textBox2.Text; }
+            if (!string.IsNullOrWhiteSpace(textBox3.Text) && Controladora.Validaciones.LongitudDNI(textBox3.TextLength) == true) { seleccionado.Dni = textBox3.Text; }
+            if (!string.IsNullOrWhiteSpace(textBox4.Text)) { seleccionado.Contraseña = Controladora.Validaciones.GetSHA256(textBox4.Text); }
+
+
+            if (permisoVerificar == true)
+            {
+                seleccionado.Perfil = (Modelo.Perfil)comboBox1.SelectedValue;
+            }
+
 
 
             Modelo.SingletonContexto.obtenerInstancia().Contexto.SaveChanges();
@@ -110,20 +130,12 @@ namespace Vista
             Neos.Contraseña = Controladora.Validaciones.GetSHA256(textBox4.Text);
             Neos.Perfil = DarPerfilEmpleado();
 
-            List<Modelo.Formulario> listaFormularios = Controladora.Formularios.obtenerInstancia().ListaFormularios(usuarioactual);
-            listaFormularios.ForEach(formulario =>
+            if (permisoVerificar == true) 
             {
-                List<Modelo.Permiso> listaPermisos = Controladora.Permisos.obtenerInstancia().ListarPermisos(formulario);
-                listaPermisos.ForEach(permiso =>
-                {
-                    if (permiso.NombreSistema == "Eliminar")
-                    {
-                        Neos.Perfil = (Modelo.Perfil)comboBox1.SelectedValue;
-                    }
-                });
-            });
+                Neos.Perfil = (Modelo.Perfil)comboBox1.SelectedValue;
+            }
 
-           
+
             if (Controladora.Validaciones.NombreUnico(textBox1.Text) == false)  //funciones validan que el email y el nombre sean correctos, devuelven un mensaje de error y no permiten la creacion si se ingresan incorrectamente
             {
                 MessageBox.Show("Nombre de usuario no valido");
