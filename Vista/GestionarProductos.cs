@@ -37,7 +37,7 @@ namespace Vista
                 Modelo.Producto seleccionado = dataGridView1.SelectedRows[0].DataBoundItem as Modelo.Producto;
                 Controladora.Producto.obtenerInstancia().EliminarProducto(seleccionado);
                 Modelo.SingletonContexto.obtenerInstancia().Contexto.SaveChanges();
-                dataGridView1.DataSource = Controladora.Producto.obtenerInstancia().ListaProductos();
+                dataGridView1.Refresh();
             }
             if (respuesta == DialogResult.No)
             {
@@ -60,9 +60,8 @@ namespace Vista
                 seleccionado.Stock = suma.ToString();
                 Modelo.SingletonContexto.obtenerInstancia().Contexto.SaveChanges();
                 textBox5.Text = "";
-                dataGridView1.DataSource = Controladora.Producto.obtenerInstancia().ListaProductos();
+                dataGridView1.Refresh();
             }
-
         }
         private void button5_Click(object sender, EventArgs e)
         {
@@ -74,11 +73,12 @@ namespace Vista
             }
             else
             {
-                int suma = Convert.ToInt32(seleccionado.Stock) + Convert.ToInt32(textBox6.Text);
-                if (suma > 0) { suma = 0; }
+                int suma = Convert.ToInt32(seleccionado.Stock) - Convert.ToInt32(textBox6.Text);
+                if (suma < 0) { suma = 0; }
                 seleccionado.Stock = suma.ToString();
+                Modelo.SingletonContexto.obtenerInstancia().Contexto.SaveChanges();
                 textBox6.Text = "";
-                dataGridView1.DataSource = Controladora.Producto.obtenerInstancia().ListaProductos();
+                dataGridView1.Refresh();
             }
         }
 
@@ -99,6 +99,41 @@ namespace Vista
             AgregarProductos form = new AgregarProductos();
             form.Show();
             this.Close();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Modelo.Producto seleccionado = dataGridView1.SelectedRows[0].DataBoundItem as Modelo.Producto;
+            if (seleccionado == null)
+            {
+                MessageBox.Show("Debe tener seleccionado un producto.");
+                return;
+            }
+            else
+            {
+                int suma = Convert.ToInt32(seleccionado.Stock) + 1;
+                seleccionado.Stock = suma.ToString();
+                Modelo.SingletonContexto.obtenerInstancia().Contexto.SaveChanges();
+                dataGridView1.Refresh();
+            }
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            Modelo.Producto seleccionado = dataGridView1.SelectedRows[0].DataBoundItem as Modelo.Producto;
+            if (seleccionado == null)
+            {
+                MessageBox.Show("Debe tener seleccionado un producto.");
+                return;
+            }
+            else
+            {
+                int suma = Convert.ToInt32(seleccionado.Stock) - 1;
+                if (suma < 0) { suma = 0; }
+                seleccionado.Stock = suma.ToString();
+                Modelo.SingletonContexto.obtenerInstancia().Contexto.SaveChanges();
+                dataGridView1.Refresh();
+            }
         }
     }
 }

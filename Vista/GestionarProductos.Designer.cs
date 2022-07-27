@@ -38,6 +38,8 @@
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.button6 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -134,11 +136,33 @@
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(610, 97);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(72, 23);
+            this.button2.TabIndex = 20;
+            this.button2.Text = "Agregar 1";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(702, 97);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(72, 23);
+            this.button7.TabIndex = 21;
+            this.button7.Text = "Restar 1";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
             // GestionarProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button7);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.textBox6);
@@ -169,5 +193,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button button6;
         public System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button7;
     }
 }
