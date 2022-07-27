@@ -51,8 +51,8 @@
             // 
             this.btnAgregar.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.GestionarClientes,
-            this.CrearPerfil,
-            this.Placeholder});
+            this.Placeholder,
+            this.CrearPerfil});
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(69, 20);
             this.btnAgregar.Text = "Opciones";
