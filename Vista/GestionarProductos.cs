@@ -96,8 +96,9 @@ namespace Vista
 
         private void button6_Click(object sender, EventArgs e)
         {
-            AgregarProductos popupForm = new AgregarProductos();
-            popupForm.ShowDialog();
+            AgregarProductos form = new AgregarProductos();
+            form.Show();
+            this.Close();
         }
     }
 }

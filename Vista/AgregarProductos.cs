@@ -51,6 +51,8 @@ namespace Vista
 
         private void button1_Click(object sender, EventArgs e)
         {
+            GestionarProductos form = new GestionarProductos();
+            form.Show();
             this.Close();   
         }
     }
