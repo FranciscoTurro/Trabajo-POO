@@ -39,6 +39,22 @@ namespace Controladora
             }
         }
 
+        public static bool NombreUnicoProd(string name)
+        {
+            if (String.IsNullOrEmpty(name) == false)
+            {
+                Modelo.Producto x = Producto.obtenerInstancia().ListaProductos().Find(producto => producto.Nombre == name);
+                if (x != null)
+                    return false;
+                else
+                    return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         public static bool CheckEmail(string emailAdd)
         {
             string email = emailAdd;
