@@ -196,6 +196,15 @@ namespace Vista
             app.Show();
             this.Hide();
         }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Modelo.Usuario seleccionado = dataGridView1.SelectedRows[0].DataBoundItem as Modelo.Usuario;
+            textBox1.Text = seleccionado.Nombre;
+            textBox2.Text = seleccionado.Email;
+            textBox3.Text = seleccionado.Dni;
+            comboBox1.SelectedItem = seleccionado.Perfil;
+        }
     }
 }
 
