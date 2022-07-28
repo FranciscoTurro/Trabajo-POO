@@ -27,7 +27,7 @@ namespace Vista
                 {
                     foreach (ToolStripMenuItem form in opcion.DropDownItems)
                     {
-                        if (form.Name == formulario.NombreSistema)
+                        if (form.Name == formulario.Nombre)
                         {
                             form.Visible = true;
                             return;

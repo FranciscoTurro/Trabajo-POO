@@ -17,6 +17,27 @@ namespace Vista
             InitializeComponent();
         }
 
+        List<CheckBox> listaChecks = new List<CheckBox>();
+
+        private void GestionarPerfiles_Load(object sender, EventArgs e)
+        {
+            List<Modelo.Perfil> lista = Controladora.Perfiles.obtenerInstancia().ListarPerfiles();
+            dataGridView1.DataSource = lista;
+
+            List<Modelo.Formulario> lista2 = Controladora.Formularios.obtenerInstancia().ListarFormularios();
+
+            for (int i = 0; i < lista2.Count; i++)   //creo de forma dinamica un checkbox por cada formulario cargado en la base de datos
+            {
+                CheckBox box = new CheckBox();
+                box.Tag = lista2[i].Nombre;
+                box.Text = lista2[i].Nombre;
+                box.AutoSize = true;
+                box.Location = new Point(500,i * 30);
+                this.Controls.Add(box);
+                listaChecks.Add(box);//agrega los checkboxes a una lista
+            }
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             List<Modelo.Formulario> formulariosNewUser = new List<Modelo.Formulario>();
@@ -26,19 +47,25 @@ namespace Vista
                 return;
             }
 
-            if (checkBox2.Checked == true)
+            for(int i = 0; i < listaChecks.Count; i++)
             {
-                formulariosNewUser.Add(Controladora.Formularios.obtenerInstancia().ListarFormularios().Find(item => item.Nombre == "CrearPerfil"));
+                if (listaChecks[i].Checked == true)
+                {
+                    formulariosNewUser.Add(Controladora.Formularios.obtenerInstancia().ListarFormularios().Find(item => item.Nombre == listaChecks[i].Text));
+                }
+                //itera la lista de checkboxes, si encuentra uno checkeado lo busca en la lista de formularios y lo agrega a una lista vacia de formularios. 
+                //esta lista de formularios es para agregarle al perfil creado
             }
+
             DialogResult respuesta = MessageBox.Show("Seguro de querer crear este perfil? No puede ser borrado mas adelante.", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (respuesta == DialogResult.Yes)
             {
-                formulariosNewUser.Add(Controladora.Formularios.obtenerInstancia().ListarFormularios().Find(item => item.Nombre == "GestionarClientes"));
                 Modelo.Perfil perfil = new Modelo.Perfil();
                 perfil.Nombre = textBox1.Text;
                 perfil.Formulario = formulariosNewUser;
                 Controladora.Perfiles.obtenerInstancia().AgregarPerfil(perfil);
             }
+
             if (respuesta == DialogResult.No)
             {
                 return;
@@ -46,7 +73,6 @@ namespace Vista
 
             MessageBox.Show("Perfil creado con exito");
             textBox1.Clear();
-            checkBox2.Checked = false;
             List<Modelo.Perfil> lista = Controladora.Perfiles.obtenerInstancia().ListarPerfiles();
             dataGridView1.DataSource = lista;
         }
@@ -57,40 +83,27 @@ namespace Vista
             app.Show();
             this.Hide();
         }
-
-        private void GestionarPerfiles_Load(object sender, EventArgs e)
-        {
-            List<Modelo.Perfil> lista = Controladora.Perfiles.obtenerInstancia().ListarPerfiles();
-            dataGridView1.DataSource = lista;
-
-            List<Modelo.Formulario> lista2 = Controladora.Formularios.obtenerInstancia().ListarFormularios();
-
-            for (int i = 0; i < lista2.Count; i++)
-            {
-                CheckBox box = new CheckBox();
-                box.Tag = lista2[i].Nombre;
-                box.Text = lista2[i].Nombre;
-                box.AutoSize = true;
-                box.Location = new Point(10, i * 50); //vertical
-                this.Controls.Add(box);
-            }
-
-            //private void button2_Click(object sender, EventArgs e) NO FUNCIONA EL ELIMINAR PERFILES, PROBLEMA CON TABLAS INTERMEDIAS Y LA FORMA EN LA QUE SE CREAN LOS PERFILES.
-            //{
-            //    DialogResult respuesta = MessageBox.Show("Seguro de querer borrar este perfil? Esta accion es permanente.", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            //    if (respuesta == DialogResult.Yes)
-            //    {
-            //        Modelo.Perfil seleccionado = dataGridView1.SelectedRows[0].DataBoundItem as Modelo.Perfil;
-            //        Controladora.Perfiles.obtenerInstancia().EliminarPerfil(seleccionado);
-
-            //        List<Modelo.Perfil> lista = Controladora.Perfiles.obtenerInstancia().ListarPerfiles();
-            //        dataGridView1.DataSource = lista;
-            //    }
-            //    if (respuesta == DialogResult.No)
-            //    {
-            //        return;
-            //    }
-            //}
-        }
     }
 }
+
+
+
+
+
+
+//private void button2_Click(object sender, EventArgs e) NO FUNCIONA EL ELIMINAR PERFILES, PROBLEMA CON TABLAS INTERMEDIAS Y LA FORMA EN LA QUE SE CREAN LOS PERFILES.
+//{
+//    DialogResult respuesta = MessageBox.Show("Seguro de querer borrar este perfil? Esta accion es permanente.", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+//    if (respuesta == DialogResult.Yes)
+//    {
+//        Modelo.Perfil seleccionado = dataGridView1.SelectedRows[0].DataBoundItem as Modelo.Perfil;
+//        Controladora.Perfiles.obtenerInstancia().EliminarPerfil(seleccionado);
+
+//        List<Modelo.Perfil> lista = Controladora.Perfiles.obtenerInstancia().ListarPerfiles();
+//        dataGridView1.DataSource = lista;
+//    }
+//    if (respuesta == DialogResult.No)
+//    {
+//        return;
+//    }
+//}

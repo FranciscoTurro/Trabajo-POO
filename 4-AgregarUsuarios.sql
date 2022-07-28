@@ -1,4 +1,3 @@
-
 insert into Usuarios (Nombre, Email, Dni, Contraseña, Perfil_Id)
 values (
 	('admin'),
