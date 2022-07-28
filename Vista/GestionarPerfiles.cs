@@ -22,7 +22,14 @@ namespace Vista
         private void GestionarPerfiles_Load(object sender, EventArgs e)
         {
             List<Modelo.Perfil> lista = Controladora.Perfiles.obtenerInstancia().ListarPerfiles();
-            dataGridView1.DataSource = lista;
+            List<string> listaNombres = new List<string>();
+            foreach (Modelo.Perfil item in lista)
+            {
+                listaNombres.Add(item.Nombre);
+            }
+
+            var result = listaNombres.Select(s => new { Nombre = s }).ToList(); //los datagridview pueden mostrar solo propiedades, y la unica propiedad de un string es su length. sin esta linea no se ven los nombres en el dgv
+            dataGridView1.DataSource = result;
 
             List<Modelo.Formulario> lista2 = Controladora.Formularios.obtenerInstancia().ListarFormularios();
 
@@ -32,7 +39,7 @@ namespace Vista
                 box.Tag = lista2[i].Nombre;
                 box.Text = lista2[i].Nombre;
                 box.AutoSize = true;
-                box.Location = new Point(500,i * 30);
+                box.Location = new Point(410,i * 30);
                 this.Controls.Add(box);
                 listaChecks.Add(box);//agrega los checkboxes a una lista
             }
