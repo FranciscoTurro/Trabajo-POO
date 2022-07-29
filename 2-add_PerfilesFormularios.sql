@@ -5,11 +5,15 @@ values (
 ),
 (
 (SELECT Id FROM Perfiles WHERE Nombre = 'Gerente'),
-(SELECT Id FROM Formularios WHERE NombreSistema = 'CrearPerfil')
+(SELECT Id FROM Formularios WHERE NombreSistema = 'GestionarPerfil')
 ),
 (
 (SELECT Id FROM Perfiles WHERE Nombre = 'Gerente'),
-(SELECT Id FROM Formularios WHERE NombreSistema = 'Placeholder')
+(SELECT Id FROM Formularios WHERE NombreSistema = 'GestionarProductos')
+),
+(
+(SELECT Id FROM Perfiles WHERE Nombre = 'Gerente'),
+(SELECT Id FROM Formularios WHERE NombreSistema = 'Listas')
 ),
 (
 (SELECT Id FROM Perfiles WHERE Nombre = 'Empleado'),
@@ -17,5 +21,9 @@ values (
 ),
 (
 (SELECT Id FROM Perfiles WHERE Nombre = 'Empleado'),
-(SELECT Id FROM Formularios WHERE NombreSistema = 'Placeholder')
+(SELECT Id FROM Formularios WHERE NombreSistema = 'GestionarProductos')
+),
+(
+(SELECT Id FROM Perfiles WHERE Nombre = 'Empleado'),
+(SELECT Id FROM Formularios WHERE NombreSistema = 'Listas')
 )

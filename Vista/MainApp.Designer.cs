@@ -31,9 +31,10 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.btnAgregar = new System.Windows.Forms.ToolStripMenuItem();
             this.GestionarClientes = new System.Windows.Forms.ToolStripMenuItem();
-            this.CrearPerfil = new System.Windows.Forms.ToolStripMenuItem();
-            this.Placeholder = new System.Windows.Forms.ToolStripMenuItem();
+            this.GestionarProductos = new System.Windows.Forms.ToolStripMenuItem();
+            this.GestionarPerfil = new System.Windows.Forms.ToolStripMenuItem();
             this.button1 = new System.Windows.Forms.Button();
+            this.Listas = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -43,7 +44,7 @@
             this.btnAgregar});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(605, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(670, 24);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -51,8 +52,9 @@
             // 
             this.btnAgregar.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.GestionarClientes,
-            this.Placeholder,
-            this.CrearPerfil});
+            this.GestionarProductos,
+            this.GestionarPerfil,
+            this.Listas});
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(69, 20);
             this.btnAgregar.Text = "Opciones";
@@ -65,24 +67,25 @@
             this.GestionarClientes.Visible = false;
             this.GestionarClientes.Click += new System.EventHandler(this.formGestionarUsuarios_Click);
             // 
-            // CrearPerfil
+            // GestionarProductos
             // 
-            this.CrearPerfil.Name = "CrearPerfil";
-            this.CrearPerfil.Size = new System.Drawing.Size(181, 22);
-            this.CrearPerfil.Text = "Crear perfil";
-            this.CrearPerfil.Visible = false;
-            this.CrearPerfil.Click += new System.EventHandler(this.CrearPerfil_Click);
+            this.GestionarProductos.Name = "GestionarProductos";
+            this.GestionarProductos.Size = new System.Drawing.Size(181, 22);
+            this.GestionarProductos.Text = "Gestionar Productos";
+            this.GestionarProductos.Visible = false;
+            this.GestionarProductos.Click += new System.EventHandler(this.Placeholder_Click);
             // 
-            // Placeholder
+            // GestionarPerfil
             // 
-            this.Placeholder.Name = "Placeholder";
-            this.Placeholder.Size = new System.Drawing.Size(181, 22);
-            this.Placeholder.Text = "Gestionar Productos";
-            this.Placeholder.Click += new System.EventHandler(this.Placeholder_Click);
+            this.GestionarPerfil.Name = "GestionarPerfil";
+            this.GestionarPerfil.Size = new System.Drawing.Size(181, 22);
+            this.GestionarPerfil.Text = "Crear perfil";
+            this.GestionarPerfil.Visible = false;
+            this.GestionarPerfil.Click += new System.EventHandler(this.CrearPerfil_Click);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(518, 289);
+            this.button1.Location = new System.Drawing.Point(583, 296);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 4;
@@ -90,11 +93,19 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // Listas
+            // 
+            this.Listas.Name = "Listas";
+            this.Listas.Size = new System.Drawing.Size(181, 22);
+            this.Listas.Text = "Listas";
+            this.Listas.Visible = false;
+            this.Listas.Click += new System.EventHandler(this.Listas_Click);
+            // 
             // MainApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(605, 324);
+            this.ClientSize = new System.Drawing.Size(670, 331);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -114,7 +125,8 @@
         private System.Windows.Forms.ToolStripMenuItem btnAgregar;
         private System.Windows.Forms.ToolStripMenuItem GestionarClientes;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ToolStripMenuItem CrearPerfil;
-        private System.Windows.Forms.ToolStripMenuItem Placeholder;
+        private System.Windows.Forms.ToolStripMenuItem GestionarPerfil;
+        private System.Windows.Forms.ToolStripMenuItem GestionarProductos;
+        private System.Windows.Forms.ToolStripMenuItem Listas;
     }
 }

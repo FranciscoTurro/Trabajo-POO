@@ -64,5 +64,12 @@ namespace Vista
             app.Show();
             this.Hide();
         }
+
+        private void Listas_Click(object sender, EventArgs e)
+        {
+            Listas app = new Listas();
+            app.Show();
+            this.Hide();
+        }
     }
 }

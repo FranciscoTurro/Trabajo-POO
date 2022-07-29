@@ -4,8 +4,9 @@ insert into Permisos values ('Eliminar', 'Eliminar')
  
 -- Agregar Formularios
  insert into Formularios values ('GestionarClientes', 'GestionarClientes')
- insert into Formularios values ('CrearPerfil', 'CrearPerfil')
- insert into Formularios values ('Placeholder', 'Placeholder')
+ insert into Formularios values ('GestionarPerfil', 'GestionarPerfil')
+ insert into Formularios values ('GestionarProductos', 'GestionarProductos')
+  insert into Formularios values ('Listas', 'Listas')
 
 -- Agregar Perfiles
 insert into Perfiles values ('Gerente')
