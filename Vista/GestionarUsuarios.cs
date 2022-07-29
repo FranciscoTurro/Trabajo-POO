@@ -77,7 +77,7 @@ namespace Vista
                 }
             });
 
-            if (permisoVerificar == false & permisoVerificar2 == true) //si el usuario no tiene permisos avanzados no puede editar un perfil que si los tenga
+            if (permisoVerificar == false & permisoVerificar2 == true)
             {
                 MessageBox.Show("No es posible editar el perfil de este usuario");
                 return;

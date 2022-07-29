@@ -14,9 +14,9 @@ namespace Modelo
         }
     }
 
-    public partial class Formulario //partial significa que se pueden definir otras partes de la clase en el namespace. Para poder usar el this.Nombre (me parece???)
+    public partial class Formulario 
     {
-        public override string ToString() //cada vez que se usa la funcion ToString con un Perfil se devuelve el nombre del perfil
+        public override string ToString() 
         {
             return this.Nombre;
         }

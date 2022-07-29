@@ -135,5 +135,21 @@ namespace Vista
                 dataGridView1.Refresh();
             }
         }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            Modelo.Producto seleccionado = dataGridView1.SelectedRows[0].DataBoundItem as Modelo.Producto;
+            if (seleccionado == null)
+            {
+                MessageBox.Show("Debe tener seleccionado un producto.");
+                return;
+            }
+            else
+            {
+                seleccionado.Precio = textBox1.Text;
+                Modelo.SingletonContexto.obtenerInstancia().Contexto.SaveChanges();
+                dataGridView1.Refresh();
+            }
+        }
     }
 }
