@@ -20,8 +20,7 @@ namespace Vista
         List<CheckBox> listaChecks = new List<CheckBox>();
         List<string> listaNombres = new List<string>();
 
-
-        private void GestionarPerfiles_Load(object sender, EventArgs e)
+    private void GestionarPerfiles_Load(object sender, EventArgs e)
         {
             List<Modelo.Perfil> lista = Controladora.Perfiles.obtenerInstancia().ListarPerfiles();
             foreach (Modelo.Perfil item in lista)
@@ -72,6 +71,7 @@ namespace Vista
                 perfil.Nombre = textBox1.Text;//crea un nuevo perfil con la lista de formularios
                 perfil.Formulario = formulariosNewUser;
                 Controladora.Perfiles.obtenerInstancia().AgregarPerfil(perfil);
+                listaNombres.Add(perfil.Nombre);
             }
 
             if (respuesta == DialogResult.No)
@@ -81,6 +81,7 @@ namespace Vista
 
             MessageBox.Show("Perfil creado con exito");
             textBox1.Clear();
+
             var result = listaNombres.Select(s => new { Nombre = s }).ToList(); //los datagridview pueden mostrar solo propiedades, y la unica propiedad de un string es su length. sin esta linea no se ven los nombres en el dgv
             dataGridView1.DataSource = result;
         }

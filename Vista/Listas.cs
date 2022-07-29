@@ -26,5 +26,12 @@ namespace Vista
         {
             dataGridView1.DataSource = Controladora.Usuario.obtenerInstancia().ListaUsuarios(); 
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            MainApp app = new MainApp();
+            app.Show();
+            this.Hide();
+        }
     }
 }

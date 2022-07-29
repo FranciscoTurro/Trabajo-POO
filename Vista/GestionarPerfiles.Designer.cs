@@ -69,7 +69,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(12, 12);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(154, 156);
+            this.dataGridView1.Size = new System.Drawing.Size(154, 229);
             this.dataGridView1.TabIndex = 32;
             // 
             // label1
