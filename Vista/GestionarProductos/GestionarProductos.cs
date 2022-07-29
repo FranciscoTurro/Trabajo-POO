@@ -139,9 +139,9 @@ namespace Vista
         private void button8_Click(object sender, EventArgs e)
         {
             Modelo.Producto seleccionado = dataGridView1.SelectedRows[0].DataBoundItem as Modelo.Producto;
-            if (seleccionado == null)
+            if (seleccionado == null ^ string.IsNullOrWhiteSpace(textBox1.Text))
             {
-                MessageBox.Show("Debe tener seleccionado un producto.");
+                MessageBox.Show("Ingrese informacion valida.");
                 return;
             }
             else
