@@ -33,8 +33,8 @@
             this.GestionarClientes = new System.Windows.Forms.ToolStripMenuItem();
             this.GestionarProductos = new System.Windows.Forms.ToolStripMenuItem();
             this.GestionarPerfil = new System.Windows.Forms.ToolStripMenuItem();
-            this.button1 = new System.Windows.Forms.Button();
             this.Listas = new System.Windows.Forms.ToolStripMenuItem();
+            this.button1 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -71,7 +71,7 @@
             // 
             this.GestionarProductos.Name = "GestionarProductos";
             this.GestionarProductos.Size = new System.Drawing.Size(181, 22);
-            this.GestionarProductos.Text = "Gestionar Productos";
+            this.GestionarProductos.Text = "Gestionar productos";
             this.GestionarProductos.Visible = false;
             this.GestionarProductos.Click += new System.EventHandler(this.Placeholder_Click);
             // 
@@ -83,6 +83,14 @@
             this.GestionarPerfil.Visible = false;
             this.GestionarPerfil.Click += new System.EventHandler(this.CrearPerfil_Click);
             // 
+            // Listas
+            // 
+            this.Listas.Name = "Listas";
+            this.Listas.Size = new System.Drawing.Size(181, 22);
+            this.Listas.Text = "Listas";
+            this.Listas.Visible = false;
+            this.Listas.Click += new System.EventHandler(this.Listas_Click);
+            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(583, 296);
@@ -92,14 +100,6 @@
             this.button1.Text = "Log out";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // Listas
-            // 
-            this.Listas.Name = "Listas";
-            this.Listas.Size = new System.Drawing.Size(181, 22);
-            this.Listas.Text = "Listas";
-            this.Listas.Visible = false;
-            this.Listas.Click += new System.EventHandler(this.Listas_Click);
             // 
             // MainApp
             // 
