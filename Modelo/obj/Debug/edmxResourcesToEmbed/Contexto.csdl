@@ -12,11 +12,6 @@
       <End Role="Perfil" EntitySet="Perfiles" />
       <End Role="Formulario" EntitySet="Formularios" />
     </AssociationSet>
-    <EntitySet Name="Permisos" EntityType="Contexto.Permiso" />
-    <AssociationSet Name="FormularioPermiso" Association="Contexto.FormularioPermiso">
-      <End Role="Formulario" EntitySet="Formularios" />
-      <End Role="Permiso" EntitySet="Permisos" />
-    </AssociationSet>
     <EntitySet Name="Productos" EntityType="Contexto.Producto" />
   </EntityContainer>
   <EntityType Name="Usuario">
@@ -47,7 +42,6 @@
     <NavigationProperty Name="Perfil" Relationship="Contexto.PerfilFormulario" FromRole="Formulario" ToRole="Perfil" />
     <Property Name="Nombre" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
     <Property Name="NombreSistema" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
-    <NavigationProperty Name="Permiso" Relationship="Contexto.FormularioPermiso" FromRole="Formulario" ToRole="Permiso" />
   </EntityType>
   <Association Name="UsuarioPerfil">
     <End Type="Contexto.Usuario" Role="Usuario" Multiplicity="*" />
@@ -56,19 +50,6 @@
   <Association Name="PerfilFormulario">
     <End Type="Contexto.Perfil" Role="Perfil" Multiplicity="*" />
     <End Type="Contexto.Formulario" Role="Formulario" Multiplicity="*" />
-  </Association>
-  <EntityType Name="Permiso">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <NavigationProperty Name="Formulario" Relationship="Contexto.FormularioPermiso" FromRole="Permiso" ToRole="Formulario" />
-    <Property Name="Nombre" Type="String" Nullable="false" />
-    <Property Name="NombreSistema" Type="String" Nullable="false" />
-  </EntityType>
-  <Association Name="FormularioPermiso">
-    <End Type="Contexto.Formulario" Role="Formulario" Multiplicity="*" />
-    <End Type="Contexto.Permiso" Role="Permiso" Multiplicity="*" />
   </Association>
   <EntityType Name="Producto">
     <Key>

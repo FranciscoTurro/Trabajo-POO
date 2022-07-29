@@ -38,14 +38,10 @@ namespace Vista
             List<Modelo.Formulario> listaFormularios = Controladora.Formularios.obtenerInstancia().ListaFormularios(usuarioactual);
             listaFormularios.ForEach(formulario =>
             {
-                List<Modelo.Permiso> listaPermisos = Controladora.Permisos.obtenerInstancia().ListarPermisos(formulario);
-                listaPermisos.ForEach(permiso =>
+                if (formulario.Nombre == "GestionarPerfil")
                 {
-                    if (permiso.NombreSistema == "Eliminar") //checkea que el usuario actual tenga permisos avanzados
-                    {
-                        permisoVerificar = true;
-                    }
-                });
+                    permisoVerificar = true;
+                }
             });
 
             if (permisoVerificar == true)
@@ -75,14 +71,10 @@ namespace Vista
             List<Modelo.Formulario> listaFormularios = Controladora.Formularios.obtenerInstancia().ListaFormularios(seleccionado);
             listaFormularios.ForEach(formulario =>
             {
-                List<Modelo.Permiso> listaPermisos = Controladora.Permisos.obtenerInstancia().ListarPermisos(formulario);
-                listaPermisos.ForEach(permiso =>
+                if (formulario.Nombre == "GestionarPerfil")
                 {
-                    if (permiso.NombreSistema == "Eliminar") //checkea que el usuario seleccionado tenga permisos avanzados
-                    {
-                        permisoVerificar2 = true;
-                    }
-                });
+                    permisoVerificar2 = true;
+                }
             });
 
             if (permisoVerificar == false & permisoVerificar2 == true) //si el usuario no tiene permisos avanzados no puede editar un perfil que si los tenga

@@ -2,13 +2,13 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 07/26/2022 16:33:33
+-- Date Created: 07/28/2022 22:03:25
 -- Generated from EDMX file: C:\Users\fturr\Desktop\Trabajo-POO\Modelo\Contexto.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
 GO
-USE [DBUSETP1];
+USE [DBUSETP2];
 GO
 IF SCHEMA_ID(N'dbo') IS NULL EXECUTE(N'CREATE SCHEMA [dbo]');
 GO
@@ -26,12 +26,6 @@ GO
 IF OBJECT_ID(N'[dbo].[FK_PerfilFormulario_Formulario]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[PerfilFormulario] DROP CONSTRAINT [FK_PerfilFormulario_Formulario];
 GO
-IF OBJECT_ID(N'[dbo].[FK_FormularioPermiso_Formulario]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[FormularioPermiso] DROP CONSTRAINT [FK_FormularioPermiso_Formulario];
-GO
-IF OBJECT_ID(N'[dbo].[FK_FormularioPermiso_Permiso]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[FormularioPermiso] DROP CONSTRAINT [FK_FormularioPermiso_Permiso];
-GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
@@ -46,14 +40,11 @@ GO
 IF OBJECT_ID(N'[dbo].[Formularios]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Formularios];
 GO
-IF OBJECT_ID(N'[dbo].[Permisos]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Permisos];
+IF OBJECT_ID(N'[dbo].[Productos]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Productos];
 GO
 IF OBJECT_ID(N'[dbo].[PerfilFormulario]', 'U') IS NOT NULL
     DROP TABLE [dbo].[PerfilFormulario];
-GO
-IF OBJECT_ID(N'[dbo].[FormularioPermiso]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[FormularioPermiso];
 GO
 
 -- --------------------------------------------------
@@ -86,14 +77,6 @@ CREATE TABLE [dbo].[Formularios] (
 );
 GO
 
--- Creating table 'Permisos'
-CREATE TABLE [dbo].[Permisos] (
-    [Id] int IDENTITY(1,1) NOT NULL,
-    [Nombre] nvarchar(max)  NOT NULL,
-    [NombreSistema] nvarchar(max)  NOT NULL
-);
-GO
-
 -- Creating table 'Productos'
 CREATE TABLE [dbo].[Productos] (
     [Id] int IDENTITY(1,1) NOT NULL,
@@ -108,13 +91,6 @@ GO
 CREATE TABLE [dbo].[PerfilFormulario] (
     [Perfil_Id] int  NOT NULL,
     [Formulario_Id] int  NOT NULL
-);
-GO
-
--- Creating table 'FormularioPermiso'
-CREATE TABLE [dbo].[FormularioPermiso] (
-    [Formulario_Id] int  NOT NULL,
-    [Permiso_Id] int  NOT NULL
 );
 GO
 
@@ -140,12 +116,6 @@ ADD CONSTRAINT [PK_Formularios]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
--- Creating primary key on [Id] in table 'Permisos'
-ALTER TABLE [dbo].[Permisos]
-ADD CONSTRAINT [PK_Permisos]
-    PRIMARY KEY CLUSTERED ([Id] ASC);
-GO
-
 -- Creating primary key on [Id] in table 'Productos'
 ALTER TABLE [dbo].[Productos]
 ADD CONSTRAINT [PK_Productos]
@@ -156,12 +126,6 @@ GO
 ALTER TABLE [dbo].[PerfilFormulario]
 ADD CONSTRAINT [PK_PerfilFormulario]
     PRIMARY KEY CLUSTERED ([Perfil_Id], [Formulario_Id] ASC);
-GO
-
--- Creating primary key on [Formulario_Id], [Permiso_Id] in table 'FormularioPermiso'
-ALTER TABLE [dbo].[FormularioPermiso]
-ADD CONSTRAINT [PK_FormularioPermiso]
-    PRIMARY KEY CLUSTERED ([Formulario_Id], [Permiso_Id] ASC);
 GO
 
 -- --------------------------------------------------
@@ -205,30 +169,6 @@ GO
 CREATE INDEX [IX_FK_PerfilFormulario_Formulario]
 ON [dbo].[PerfilFormulario]
     ([Formulario_Id]);
-GO
-
--- Creating foreign key on [Formulario_Id] in table 'FormularioPermiso'
-ALTER TABLE [dbo].[FormularioPermiso]
-ADD CONSTRAINT [FK_FormularioPermiso_Formulario]
-    FOREIGN KEY ([Formulario_Id])
-    REFERENCES [dbo].[Formularios]
-        ([Id])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating foreign key on [Permiso_Id] in table 'FormularioPermiso'
-ALTER TABLE [dbo].[FormularioPermiso]
-ADD CONSTRAINT [FK_FormularioPermiso_Permiso]
-    FOREIGN KEY ([Permiso_Id])
-    REFERENCES [dbo].[Permisos]
-        ([Id])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating non-clustered index for FOREIGN KEY 'FK_FormularioPermiso_Permiso'
-CREATE INDEX [IX_FK_FormularioPermiso_Permiso]
-ON [dbo].[FormularioPermiso]
-    ([Permiso_Id]);
 GO
 
 -- --------------------------------------------------

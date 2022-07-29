@@ -4,10 +4,8 @@
     <EntitySet Name="Usuarios" EntityType="Contexto.Store.Usuarios" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Perfiles" EntityType="Contexto.Store.Perfiles" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Formularios" EntityType="Contexto.Store.Formularios" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Permisos" EntityType="Contexto.Store.Permisos" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Productos" EntityType="Contexto.Store.Productos" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="PerfilFormulario" EntityType="Contexto.Store.PerfilFormulario" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="FormularioPermiso" EntityType="Contexto.Store.FormularioPermiso" store:Type="Tables" Schema="dbo" />
     <AssociationSet Name="UsuarioPerfil" Association="Contexto.Store.UsuarioPerfil">
       <End Role="Usuario" EntitySet="Usuarios" />
       <End Role="Perfil" EntitySet="Perfiles" />
@@ -19,14 +17,6 @@
     <AssociationSet Name="FK_PerfilFormulario_Formulario" Association="Contexto.Store.FK_PerfilFormulario_Formulario">
       <End Role="Formulario" EntitySet="Formularios" />
       <End Role="PerfilFormulario" EntitySet="PerfilFormulario" />
-    </AssociationSet>
-    <AssociationSet Name="FK_FormularioPermiso_Formulario" Association="Contexto.Store.FK_FormularioPermiso_Formulario">
-      <End Role="Formulario" EntitySet="Formularios" />
-      <End Role="FormularioPermiso" EntitySet="FormularioPermiso" />
-    </AssociationSet>
-    <AssociationSet Name="FK_FormularioPermiso_Permiso" Association="Contexto.Store.FK_FormularioPermiso_Permiso">
-      <End Role="Permiso" EntitySet="Permisos" />
-      <End Role="FormularioPermiso" EntitySet="FormularioPermiso" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="Usuarios">
@@ -55,14 +45,6 @@
     <Property Name="Nombre" Type="nvarchar(max)" Nullable="false" />
     <Property Name="NombreSistema" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
-  <EntityType Name="Permisos">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Nombre" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="NombreSistema" Type="nvarchar(max)" Nullable="false" />
-  </EntityType>
   <EntityType Name="Productos">
     <Key>
       <PropertyRef Name="Id" />
@@ -80,14 +62,6 @@
     </Key>
     <Property Name="Perfil_Id" Type="int" Nullable="false" />
     <Property Name="Formulario_Id" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="FormularioPermiso">
-    <Key>
-      <PropertyRef Name="Formulario_Id" />
-      <PropertyRef Name="Permiso_Id" />
-    </Key>
-    <Property Name="Formulario_Id" Type="int" Nullable="false" />
-    <Property Name="Permiso_Id" Type="int" Nullable="false" />
   </EntityType>
   <Association Name="UsuarioPerfil">
     <End Role="Usuario" Type="Contexto.Store.Usuarios" Multiplicity="*" />
@@ -122,30 +96,6 @@
       </Principal>
       <Dependent Role="PerfilFormulario">
         <PropertyRef Name="Formulario_Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_FormularioPermiso_Formulario">
-    <End Role="Formulario" Type="Contexto.Store.Formularios" Multiplicity="1" />
-    <End Role="FormularioPermiso" Type="Contexto.Store.FormularioPermiso" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Formulario">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="FormularioPermiso">
-        <PropertyRef Name="Formulario_Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_FormularioPermiso_Permiso">
-    <End Role="FormularioPermiso" Type="Contexto.Store.FormularioPermiso" Multiplicity="*" />
-    <End Role="Permiso" Type="Contexto.Store.Permisos" Multiplicity="1" />
-    <ReferentialConstraint>
-      <Principal Role="Permiso">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="FormularioPermiso">
-        <PropertyRef Name="Permiso_Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

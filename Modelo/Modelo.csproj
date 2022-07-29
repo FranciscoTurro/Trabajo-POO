@@ -75,9 +75,6 @@
     <Compile Include="Perfil.cs">
       <DependentUpon>Contexto.tt</DependentUpon>
     </Compile>
-    <Compile Include="Permiso.cs">
-      <DependentUpon>Contexto.tt</DependentUpon>
-    </Compile>
     <Compile Include="Producto.cs">
       <DependentUpon>Contexto.tt</DependentUpon>
     </Compile>
