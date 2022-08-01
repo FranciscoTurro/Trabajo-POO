@@ -33,5 +33,11 @@ namespace Vista
             app.Show();
             this.Hide();
         }
+
+        private void Listas_Load(object sender, EventArgs e)
+        {
+            Size screenSize = Screen.PrimaryScreen.WorkingArea.Size;
+            Location = new Point(screenSize.Width / 2 - Width / 2, screenSize.Height / 2 - Height / 2); //aparece en el medio de la pantalla
+        }
     }
 }

@@ -22,6 +22,9 @@ namespace Vista
 
     private void GestionarPerfiles_Load(object sender, EventArgs e)
         {
+            Size screenSize = Screen.PrimaryScreen.WorkingArea.Size;
+            Location = new Point(screenSize.Width / 2 - Width / 2, screenSize.Height / 2 - Height / 2); //aparece en el medio de la pantalla
+
             List<Modelo.Perfil> lista = Controladora.Perfiles.obtenerInstancia().ListarPerfiles();
             foreach (Modelo.Perfil item in lista)
             {

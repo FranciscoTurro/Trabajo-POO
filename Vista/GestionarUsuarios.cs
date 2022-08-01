@@ -24,6 +24,9 @@ namespace Vista
 
         private void GestionarUsuarios_Load(object sender, EventArgs e)
         {
+            Size screenSize = Screen.PrimaryScreen.WorkingArea.Size;
+            Location = new Point(screenSize.Width / 2 - Width / 2, screenSize.Height / 2 - Height / 2); //aparece en el medio de la pantalla
+
             comboBox1.Hide();
             label5.Hide();
             button3.Hide();
@@ -114,7 +117,6 @@ namespace Vista
 
         private void button1_Click(object sender, EventArgs e) //agregar usuario
         {
-            Modelo.Usuario usuarioactual = Controladora.Usuario.obtenerInstancia().usuarioActual;
             Modelo.Usuario Neos = new Modelo.Usuario(); //creo un usuario vacio y lo lleno con los contenidos en las textboxes
             Neos.Nombre = textBox1.Text;
             Neos.Email = textBox2.Text;

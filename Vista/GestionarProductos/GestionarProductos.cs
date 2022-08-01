@@ -26,6 +26,9 @@ namespace Vista
 
         private void ListarUsuarios_Load(object sender, EventArgs e)
         {
+            Size screenSize = Screen.PrimaryScreen.WorkingArea.Size;
+            Location = new Point(screenSize.Width / 2 - Width / 2, screenSize.Height / 2 - Height / 2); //aparece en el medio de la pantalla
+
             dataGridView1.DataSource = Controladora.Producto.obtenerInstancia().ListaProductos();
         }
 
@@ -37,7 +40,7 @@ namespace Vista
                 Modelo.Producto seleccionado = dataGridView1.SelectedRows[0].DataBoundItem as Modelo.Producto;
                 Controladora.Producto.obtenerInstancia().EliminarProducto(seleccionado);
                 Modelo.SingletonContexto.obtenerInstancia().Contexto.SaveChanges();
-                dataGridView1.Refresh();
+                dataGridView1.DataSource = Controladora.Producto.obtenerInstancia().ListaProductos();
             }
             if (respuesta == DialogResult.No)
             {
@@ -148,6 +151,7 @@ namespace Vista
             {
                 seleccionado.Precio = textBox1.Text;
                 Modelo.SingletonContexto.obtenerInstancia().Contexto.SaveChanges();
+                textBox1.Clear();
                 dataGridView1.Refresh();
             }
         }

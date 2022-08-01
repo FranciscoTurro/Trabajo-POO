@@ -39,14 +39,14 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(114, 54);
+            this.textBox1.Location = new System.Drawing.Point(90, 44);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 0;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(114, 125);
+            this.textBox2.Location = new System.Drawing.Point(90, 118);
             this.textBox2.Name = "textBox2";
             this.textBox2.PasswordChar = '*';
             this.textBox2.Size = new System.Drawing.Size(100, 20);
@@ -54,7 +54,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(114, 187);
+            this.button1.Location = new System.Drawing.Point(90, 188);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 2;
@@ -65,7 +65,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(47, 54);
+            this.label1.Location = new System.Drawing.Point(23, 44);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(44, 13);
             this.label1.TabIndex = 3;
@@ -74,7 +74,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(47, 125);
+            this.label2.Location = new System.Drawing.Point(23, 118);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(61, 13);
             this.label2.TabIndex = 4;
@@ -85,7 +85,7 @@
             this.button4.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Image = global::Vista.Properties.Resources.visibility_off_FILL0_wght400_GRAD0_opsz48;
-            this.button4.Location = new System.Drawing.Point(220, 125);
+            this.button4.Location = new System.Drawing.Point(196, 118);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(23, 20);
             this.button4.TabIndex = 15;
@@ -97,7 +97,7 @@
             this.button3.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Image = global::Vista.Properties.Resources.visibility_FILL0_wght400_GRAD0_opsz48;
-            this.button3.Location = new System.Drawing.Point(220, 125);
+            this.button3.Location = new System.Drawing.Point(196, 118);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(23, 20);
             this.button3.TabIndex = 14;
@@ -108,7 +108,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(294, 386);
+            this.ClientSize = new System.Drawing.Size(259, 305);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.label2);

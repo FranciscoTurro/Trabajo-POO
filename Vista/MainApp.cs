@@ -19,7 +19,15 @@ namespace Vista
 
         private void MainApp_Load(object sender, EventArgs e)
         {
+            Size screenSize = Screen.PrimaryScreen.WorkingArea.Size;
+            Location = new Point(screenSize.Width / 2 - Width / 2, screenSize.Height / 2 - Height / 2); //aparece en el medio de la pantalla
+
             Modelo.Usuario usuario = Controladora.Usuario.obtenerInstancia().usuarioActual;
+
+            label1.Text = $"Usuario actual: {usuario.Nombre}";
+            label2.Text = $"Perfil de usuario: {usuario.Perfil}";
+
+
             List<Modelo.Formulario> formulariosUsuario = Controladora.Formularios.obtenerInstancia().ListaFormularios(usuario); //hago una lista con todos los formularios del usuario actual
             formulariosUsuario.ForEach((formulario) => //por cada formulario en la lista checkeo una por una las opciones del menustrip, y si una es igual la hace visible
             {

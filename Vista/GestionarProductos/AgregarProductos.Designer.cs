@@ -143,6 +143,7 @@
             this.Controls.Add(this.textBox1);
             this.Name = "AgregarProductos";
             this.Text = "AgregarProductos";
+            this.Load += new System.EventHandler(this.AgregarProductos_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
